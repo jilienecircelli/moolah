@@ -31,17 +31,19 @@ h1 {
     text-shadow: 2px;
 }
 
-
-/* .login-signup {
-    padding: 2%;
-} */
+.login-signup {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 150px;
+    padding-right: 150px;
+}
 
 .signup-btn,
 .login-btn {
     padding: 5px;
     background-color: white;
     border-radius: 10px;
-    border-width: 50px;
+    width: 100px;
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -51,3 +53,5 @@ html {
     background: url(https://media.giphy.com/media/72HahsJD4atSE/source.gif) no-repeat center center fixed;
     background-size: cover;
 } */
+
+x
