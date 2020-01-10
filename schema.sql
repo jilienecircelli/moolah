@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS moolah_db;
+CREATE DATABASE moolah_db;
