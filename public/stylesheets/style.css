@@ -1,4 +1,53 @@
 form.signup,
 form.login {
-  margin-top: 50px;
+    margin-top: 50px;
 }
+
+h1 {
+    text-align: center;
+}
+
+.navbar-default {
+    background-color: transparent;
+}
+
+.welcome-page {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("../img/money-stack.gif");
+    opacity: 80%;
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-position: center;
+}
+
+.welcome-moolah {
+    font-family: 'Comfortaa', cursive;
+    font-size: 65px;
+    text-align: center;
+    font-weight: lighter;
+    padding-top: 25%;
+    text-shadow: 2px;
+}
+
+
+/* .login-signup {
+    padding: 2%;
+} */
+
+.signup-btn,
+.login-btn {
+    padding: 5px;
+    background-color: white;
+    border-radius: 10px;
+    border-width: 50px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+/* 
+html {
+    background: url(https://media.giphy.com/media/72HahsJD4atSE/source.gif) no-repeat center center fixed;
+    background-size: cover;
+} */
