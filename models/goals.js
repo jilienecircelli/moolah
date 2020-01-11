@@ -20,7 +20,13 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.DECIMAL(13, 2),
             allowNull: false,
         },
+        userID: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },
     
     });
     return Goals;
 };
+
+//create association - belong to a user - foreign key will be user Id 
