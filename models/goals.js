@@ -20,11 +20,7 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.DECIMAL(13, 2),
             allowNull: false,
         },
-        dueDate: {
-            type: DataTypes.DATE,
-            allowNull: false,
-            defaultValue: DataTypes.NOW,
-        },
+    
     });
     return Goals;
 };
