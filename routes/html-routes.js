@@ -14,6 +14,17 @@ module.exports = function(app) {
         res.sendFile(path.join(__dirname, "../public/signup.html"));
     });
 
+    // Added welcome route, but will change once we decide on the main default page
+    app.get("/welcome", function(req, res) {
+        // If the user already has an account send them to the members page
+        res.sendFile(path.join(__dirname, "../public/welcome.html"));
+    });
+
+    app.get("/signup", function(req, res) {
+        // If the user already has an account send them to the members page
+        res.sendFile(path.join(__dirname, "../public/signup.html"));
+    });
+
     app.get("/login", function(req, res) {
         // If the user already has an account send them to the members page
         if (req.user) {
