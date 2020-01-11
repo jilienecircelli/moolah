@@ -1,5 +1,4 @@
 $(document).ready(function() {
-    //we need to display the persons current expenses i nthe middle, apis to the right, and to the left the goalz
 
-    
+    //we need to display the persons current expenses and the news in a card to the right
 });
