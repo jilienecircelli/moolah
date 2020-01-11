@@ -39,20 +39,52 @@
             </div>
             <!-- Main Content -->
             <div class="col-12 col-md-8">
-                <h2>Your moolah.</h2>
+                <h1>Your moolah.</h1>
                 <div class="row">
-                    <div class="col-4 category-col">Category</div>
-                    <div class="col-4 amount-col">Amount</div>
-                    <div class="col-4 month-col">Month</div>
+                    <!-- Add drop down for month -->
+                    <div class="dropdown">
+                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Month
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <button class="dropdown-item" href="#">January</button>
+                            <button class="dropdown-item" href="#">February</button>
+                            <button class="dropdown-item" href="#">March</button>
+                            <button class="dropdown-item" href="#">April</button>
+                            <button class="dropdown-item" href="#">May</button>
+                            <button class="dropdown-item" href="#">June</button>
+                            <button class="dropdown-item" href="#">July</button>
+                            <button class="dropdown-item" href="#">August</button>
+                            <button class="dropdown-item" href="#">September</button>
+                            <button class="dropdown-item" href="#">October</button>
+                            <button class="dropdown-item" href="#">November</button>
+                            <button class="dropdown-item" href="#">December</button>
+                        </div>
+                    </div>
+                    <!-- Columns -->
+                    <div class="col-4 col-md-4 category-col">Category</div>
+                    <div class="col-4 col-md-4 expenseName-col">Expense
+                    </div>
+                    <div class="col-4 col-md-4 amount-col">Amount</div>
+                </div>
+                <div class="row">
+                    <div class="col-8 col-md-8"> </div>
+                    <div class="col-4 col-md-4">Totals</div>
                 </div>
                 <!-- News -->
             </div>
             <div class="col-6 col-md-2">
                 <h1>News</h1>
                 Side Bar - All the News articles will appear here
+                <div class="row">
+                    <div class="col-12 financeNews-col">NEWS</div>
+                </div>
             </div>
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 
 </html>
