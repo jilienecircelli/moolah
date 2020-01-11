@@ -1,6 +1,16 @@
-$(document).ready(function() {
-    $.get("/api/user_data").then(function(data) {
-        $(".user-name").text(data.firstName);
-    });
-    //we need to display the persons current expenses and the news in a card to the right
-});
+
+function displayGeneralNews() {
+//news api 
+
+  // TODO: create api call in Postman. 
+  // TODO: make an ajax call 
+  //TODO: make button in html  to help ajax along?
+};
+
+
+function displayFinancialData() {
+  // TODO: create api call in Postman. 
+  // TODO: make an ajax call 
+  //TODO: make button in html  to help ajax along?
+}
+displayGeneralNews(); 
