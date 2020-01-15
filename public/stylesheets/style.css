@@ -3,8 +3,15 @@ form.login {
     margin-top: 50px;
 }
 
-h1 {
+.dropmenuBtn,
+h1,
+h2 {
     text-align: center;
+}
+
+.btn-secondary,
+.dropdown-toggle {
+    font-size: 14px;
 }
 
 .navbar-default {
@@ -47,11 +54,12 @@ h1 {
     font-family: 'Montserrat', sans-serif;
 }
 
+.plusBtn {
+    color: green;
+    font-size: 40px;
+    text-align: center;
+}
 
-/* 
-html {
-    background: url(https://media.giphy.com/media/72HahsJD4atSE/source.gif) no-repeat center center fixed;
-    background-size: cover;
-} */
-
-x
+.monthMenu {
+    align-content: center;
+}
