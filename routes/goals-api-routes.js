@@ -1,45 +1,57 @@
 var db = require("../models");
 
 module.exports = function(app) {
-  app.get("/api/budget", function(req, res) {
-    db.Budget.findAll({}).then(function(dbBudget) {
-      res.json(dbBudget);
+  app.get("/api/goals", function(req, res) {
+    db.Goals.findAll({}).then(function(dbGoals) {
+      res.json(dbGoals);
     });
   });
 
-  app.get("/api/budget/:month", function(req, res) {
-    db.Budget.findAll({
+  app.get("/api/goals/:month", function(req, res) {
+    db.Goals.findAll({
         where: {
             month: req.params.month
           }
-    }).then(function(dbBudget) {
-      res.json(dbBudget);
+    }).then(function(dbGoals) {
+      res.json(dbGoals);
     });
   });
 
-  app.get("/api/budget/:category", function(req, res) {
-    db.Budget.findAll({
+  app.get("/api/goals/:category", function(req, res) {
+    db.Goals.findAll({
         where: {
             category: req.params.category
           }
-    }).then(function(dbBudget) {
-      res.json(dbBudget);
+    }).then(function(dbGoals) {
+      res.json(dbGoals);
     });
   });
 
-  app.post("/api/budget", function(req, res) {
-    db.Budget.create(req.body).then(function(dbBudget) {
-      res.json(dbBudget);
+  app.post("/api/goals", function(req, res) {
+    db.Goals.create(req.body).then(function(dbGoals) {
+      res.json(dbGoals);
     });
   });
 
   app.delete("/api/budget/:id", function(req, res) {
-    db.Budget.destroy({
+    db.Goals.destroy({
       where: {
         id: req.params.id
       }
-    }).then(function(dbBudget) {
-      res.json(dbBudget);
+    }).then(function(dbGoals) {
+      res.json(dbGoals);
+    });
+  });
+
+  app.put("/api/goals", function(req, res) {
+    db.Goals.update(
+      req.body,
+      {
+      where: {
+        id: req.body.id
+      }
+    }).then(function(dbGoals) {
+      res.json(dbGoals);
     });
   });
 
