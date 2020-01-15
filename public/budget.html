@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css?family=Comfortaa&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <link href="stylesheets/style.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery-footable/3.1.6/footable.bootstrap.css">
 </head>
 
 <body>
@@ -38,7 +39,7 @@
                 Side Bar - All the "Goalz" content will appear here
             </div>
             <!-- Main Content -->
-            <div class="col-12 col-md-8">
+            <div class="col-12 col-md-8 mainContentDiv">
                 <h1>Your moolah.</h1>
                 <!-- Add drop down for month -->
                 <div class="dropdown dropmenuBtn">
@@ -60,17 +61,122 @@
                         <button class="dropdown-item" href="#">December</button>
                     </div>
                 </div>
+                <!-- Table -->
                 <div class="row">
-                    <!-- Columns -->
-                    <div class="col-4 col-md-4 category-col">Category</div>
-                    <div class="col-4 col-md-4 expenseName-col">Expense
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Category</th>
+                                <th>Amount</th>
+                                <th data-breakpoints="xs">Total Spent</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-expanded="true">
+                                <td>Housing</td>
+                                <td>1000</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>Utilities</td>
+                                <td>100</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+
+                                <td>Transportation</td>
+                                <td>200</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>Food</td>
+                                <td>300</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>Shopping</td>
+                                <td>200</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>Leisure</td>
+                                <td>200</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>Miscellaneous</td>
+                                <td>100</td>
+                                <td>0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+                    <!-- Modal -->
+
+
+                    <div class="modal fade" id="editor-modal" tabindex="-1" role="dialog" aria-labelledby="editor-title">
+                        <style scoped>
+                            /* provides a red astrix to denote required fields - this should be included in common stylesheet */
+                            
+                            .form-group.required .control-label:after {
+                                content: "*";
+                                color: red;
+                                margin-left: 4px;
+                            }
+                        </style>
+                        <div class="modal-dialog" role="document">
+                            <form class="modal-content form-horizontal" id="editor">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                            aria-hidden="true">×</span></button>
+                                    <h4 class="modal-title" id="editor-title">Add Row</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <input type="number" id="id" name="id" class="hidden" />
+                                    <div class="form-group required">
+                                        <label for="firstName" class="col-sm-3 control-label">First Name</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group required">
+                                        <label for="lastName" class="col-sm-3 control-label">Last Name</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="jobTitle" class="col-sm-3 control-label">Job Title</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="jobTitle" name="jobTitle" placeholder="Job Title">
+                                        </div>
+                                    </div>
+                                    <div class="form-group required">
+                                        <label for="startedOn" class="col-sm-3 control-label">Started On</label>
+                                        <div class="col-sm-9">
+                                            <input type="date" class="form-control" id="startedOn" name="startedOn" placeholder="Started On" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="dob" class="col-sm-3 control-label">Date of Birth</label>
+                                        <div class="col-sm-9">
+                                            <input type="date" class="form-control" id="dob" name="dob" placeholder="Date of Birth">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-primary">Save changes</button>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
-                    <div class="col-4 col-md-4 amount-col">Amount</div>
                 </div>
-                <div class="row">
-                    <div class="col-8 col-md-8"> </div>
-                    <div class="col-4 col-md-4">Totals</div>
-                </div>
+
+
+
                 <!-- Button to add expenses -->
                 <div class="row">
                     <a href="/addexpense"><i class="fas fa-plus plusBtn"></i></a>

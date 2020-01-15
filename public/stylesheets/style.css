@@ -60,6 +60,9 @@ h2 {
     text-align: center;
 }
 
-.monthMenu {
-    align-content: center;
+.mainContentDiv {
+    border-left: 2.5px lightgray solid;
+    border-right: 2.5px lightgray solid;
+    padding-right: 25px;
+    padding-left: 25px;
 }
