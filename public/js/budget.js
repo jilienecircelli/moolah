@@ -116,7 +116,3 @@ $(document).ready(function() {
 
 
 
-<<<<<<< HEAD
-});
-=======
->>>>>>> e4c6236db1fc11ac9be92097aba7a87573f71f04
