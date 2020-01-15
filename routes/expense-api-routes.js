@@ -28,7 +28,7 @@ module.exports = function(app) {
   });
 
   app.post("/api/expenses", function(req, res) {
-    db.Expense.create(req.body).then(function(dbExpenses) {
+    db.Expenses.create(req.body).then(function(dbExpenses) {
       res.json(dbExpenses);
     });
   });
@@ -37,6 +37,18 @@ module.exports = function(app) {
     db.Expenses.destroy({
       where: {
         id: req.params.id
+      }
+    }).then(function(dbExpenses) {
+      res.json(dbExpenses);
+    });
+  });
+
+  app.put("/api/expenses", function(req, res) {
+    db.Expenses.update(
+      req.body,
+      {
+      where: {
+        id: req.body.id
       }
     }).then(function(dbExpenses) {
       res.json(dbExpenses);
