@@ -3,10 +3,10 @@
 <html lang="en">
 
 <head>
-    <title>moolah.</title>
+    <title>moolah. - Budget</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Comfortaa&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <link href="stylesheets/style.css" rel="stylesheet">
@@ -40,27 +40,27 @@
             <!-- Main Content -->
             <div class="col-12 col-md-8">
                 <h1>Your moolah.</h1>
-                <div class="row">
-                    <!-- Add drop down for month -->
-                    <div class="dropdown">
-                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Month
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <button class="dropdown-item" href="#">January</button>
-                            <button class="dropdown-item" href="#">February</button>
-                            <button class="dropdown-item" href="#">March</button>
-                            <button class="dropdown-item" href="#">April</button>
-                            <button class="dropdown-item" href="#">May</button>
-                            <button class="dropdown-item" href="#">June</button>
-                            <button class="dropdown-item" href="#">July</button>
-                            <button class="dropdown-item" href="#">August</button>
-                            <button class="dropdown-item" href="#">September</button>
-                            <button class="dropdown-item" href="#">October</button>
-                            <button class="dropdown-item" href="#">November</button>
-                            <button class="dropdown-item" href="#">December</button>
-                        </div>
+                <!-- Add drop down for month -->
+                <div class="dropdown dropmenuBtn">
+                    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Month
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <button class="dropdown-item" href="#">January</button>
+                        <button class="dropdown-item" href="#">February</button>
+                        <button class="dropdown-item" href="#">March</button>
+                        <button class="dropdown-item" href="#">April</button>
+                        <button class="dropdown-item" href="#">May</button>
+                        <button class="dropdown-item" href="#">June</button>
+                        <button class="dropdown-item" href="#">July</button>
+                        <button class="dropdown-item" href="#">August</button>
+                        <button class="dropdown-item" href="#">September</button>
+                        <button class="dropdown-item" href="#">October</button>
+                        <button class="dropdown-item" href="#">November</button>
+                        <button class="dropdown-item" href="#">December</button>
                     </div>
+                </div>
+                <div class="row">
                     <!-- Columns -->
                     <div class="col-4 col-md-4 category-col">Category</div>
                     <div class="col-4 col-md-4 expenseName-col">Expense
@@ -70,6 +70,10 @@
                 <div class="row">
                     <div class="col-8 col-md-8"> </div>
                     <div class="col-4 col-md-4">Totals</div>
+                </div>
+                <!-- Button to add expenses -->
+                <div class="row">
+                    <a href="/addexpense"><i class="fas fa-plus plusBtn"></i></a>
                 </div>
                 <!-- News -->
             </div>
@@ -85,6 +89,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/c6c0d775a0.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
