@@ -79,13 +79,6 @@ $(document).ready(function() {
             });
 
             
-            var $articleDescription = $(`<h3> Description: ${description}</h3>`);
-            $articleDescription.addClass("list-group");
-            $(".financeNews-col").append($articleDescription);
-​
-            var $articleURL = $(`<h3> ${url}</a>`);
-            $articleURL.addClass("list-group");
-            $(".financeNews-col").append($articleURL);
 ​
         })
 
