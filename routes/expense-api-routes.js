@@ -27,31 +27,20 @@ module.exports = function(app) {
     });
   });
 
+  app.post("/api/expenses", function(req, res) {
+    db.Expense.create(req.body).then(function(dbExpenses) {
+      res.json(dbExpenses);
+    });
+  });
 
-//   app.get("/api/authors/:id", function(req, res) {
-//     db.Author.findOne({
-//       where: {
-//         id: req.params.id
-//       }
-//     }).then(function(dbAuthor) {
-//       res.json(dbAuthor);
-//     });
-//   });
-
-//   app.post("/api/authors", function(req, res) {
-//     db.Author.create(req.body).then(function(dbAuthor) {
-//       res.json(dbAuthor);
-//     });
-//   });
-
-//   app.delete("/api/authors/:id", function(req, res) {
-//     db.Author.destroy({
-//       where: {
-//         id: req.params.id
-//       }
-//     }).then(function(dbAuthor) {
-//       res.json(dbAuthor);
-//     });
-//   });
+  app.delete("/api/expenses/:id", function(req, res) {
+    db.Expenses.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(dbExpenses) {
+      res.json(dbExpenses);
+    });
+  });
 
 };

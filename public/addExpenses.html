@@ -1,1 +1,89 @@
-<!-- this is a place holder for the add expenses page-->
+<!-- this is a place holder for the goalz page in our application -->
+<!-- this is a place holder for the budget page in our application -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>moolah. - Add Expenses</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="stylesheets/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Adding NavBar -->
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/logout">
+                    Logout
+                </a>
+                <a class="back2budget" href="/budget">Back to Budget Overview</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <!-- Main Content -->
+            <div class="col-12 col-md-12">
+                <!-- Month Dropdown menu -->
+                <h2>Add Expenses</h2>
+                <div class="row monthBtn">
+                    <div class="dropdown dropmenuBtn">
+                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Month
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <button class="dropdown-item" href="#">January</button>
+                            <button class="dropdown-item" href="#">February</button>
+                            <button class="dropdown-item" href="#">March</button>
+                            <button class="dropdown-item" href="#">April</button>
+                            <button class="dropdown-item" href="#">May</button>
+                            <button class="dropdown-item" href="#">June</button>
+                            <button class="dropdown-item" href="#">July</button>
+                            <button class="dropdown-item" href="#">August</button>
+                            <button class="dropdown-item" href="#">September</button>
+                            <button class="dropdown-item" href="#">October</button>
+                            <button class="dropdown-item" href="#">November</button>
+                            <button class="dropdown-item" href="#">December</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <!-- Category Dropdown -->
+                    <div class="col-4 category-col">
+                        <div class="dropdown dropmenuBtn cateoryDropDown">
+                            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Category
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <button class="dropdown-item" href="#">Housing</button>
+                                <button class="dropdown-item" href="#">Utilities</button>
+                                <button class="dropdown-item" href="#">Transportation</button>
+                                <button class="dropdown-item" href="#">Food</button>
+                                <button class="dropdown-item" href="#">Shopping</button>
+                                <button class="dropdown-item" href="#">Leisure</button>
+                                <button class="dropdown-item" href="#">Miscellaneous</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 expense-col">Expense</div>
+                    <div class="col-4 amount-col">Amount</div>
+
+                </div>
+                <!-- News -->
+            </div>
+        </div>
+    </div>
+    <!-- Script Files -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+
+</html>

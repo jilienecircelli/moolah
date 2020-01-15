@@ -16,6 +16,14 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: false,
         },
+        userID: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },
     });
     return Expenses;
 };
+
+//create association - belong to a user - foreign key will be user Id 
+
+//belongs to a budget
