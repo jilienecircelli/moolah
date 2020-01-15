@@ -17,16 +17,16 @@ var queryURL = "https://newsapi.org/v2/top-headlines?country=us&category=busines
 
         console.log("title is: ", title);
 
-        var $articleTitle = $(`<h7> Title: ${title}</h7> <br>`);
-        $articleTitle.addClass("list-group");
+        var $articleTitle = $(`<h8> ${title}</h8> <br>`);
+        $articleTitle.addClass("card-title");
         $(".financeNews-col").append($articleTitle); 
 
-        var $articleDescription = $(`<h8> Description: ${description}</h8> <br>`);
-        $articleDescription.addClass("list-group");
-        $(".financeNews-col").append($articleDescription);
+        // var $articleDescription = $(`<h7> ${description}</h7> <br>`);
+        // $articleDescription.addClass("card-text");
+        // $(".financeNews-col").append($articleDescription);
 
-        var $articleURL = $(`<h8> ${url}</h8> <br>`);
-        $articleURL.addClass("list-group");
+        var $articleURL = $(`<a href="${url}" target="_blank"> news link </a> <br><br>`);
+        $articleURL.addClass("card-link");
         $(".financeNews-col").append($articleURL);
         
     }})
