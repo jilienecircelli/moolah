@@ -4,10 +4,12 @@
 <html lang="en">
 
 <head>
-    <title>moolah. - Add Expenses</title>
+    <title>moolah. Add Expenses</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
     <link href="https://fonts.googleapis.com/css?family=Comfortaa&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <link href="stylesheets/style.css" rel="stylesheet">
@@ -15,75 +17,123 @@
 
 <body>
     <!-- Adding NavBar -->
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="/logout">
-                    Logout
-                </a>
-                <a class="back2budget" href="/budget">Back to Budget Overview</a>
-            </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand font-weight-bold" href="#">moolah.</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/budget">Budget <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/addexpenses">Expenses</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">Logout</a>
+                </li>
+            </ul>
         </div>
+
     </nav>
 
     <!-- Main Content -->
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-            <!-- Main Content -->
-            <div class="col-12 col-md-12">
-                <!-- Month Dropdown menu -->
-                <h2>Add Expenses</h2>
-                <div class="row monthBtn">
-                    <div class="dropdown dropmenuBtn">
-                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Month
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <button class="dropdown-item" href="#">January</button>
-                            <button class="dropdown-item" href="#">February</button>
-                            <button class="dropdown-item" href="#">March</button>
-                            <button class="dropdown-item" href="#">April</button>
-                            <button class="dropdown-item" href="#">May</button>
-                            <button class="dropdown-item" href="#">June</button>
-                            <button class="dropdown-item" href="#">July</button>
-                            <button class="dropdown-item" href="#">August</button>
-                            <button class="dropdown-item" href="#">September</button>
-                            <button class="dropdown-item" href="#">October</button>
-                            <button class="dropdown-item" href="#">November</button>
-                            <button class="dropdown-item" href="#">December</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <!-- Category Dropdown -->
-                    <div class="col-4 category-col">
-                        <div class="dropdown dropmenuBtn cateoryDropDown">
-                            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Category
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <button class="dropdown-item" href="#">Housing</button>
-                                <button class="dropdown-item" href="#">Utilities</button>
-                                <button class="dropdown-item" href="#">Transportation</button>
-                                <button class="dropdown-item" href="#">Food</button>
-                                <button class="dropdown-item" href="#">Shopping</button>
-                                <button class="dropdown-item" href="#">Leisure</button>
-                                <button class="dropdown-item" href="#">Miscellaneous</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-4 expense-col">Expense</div>
-                    <div class="col-4 amount-col">Amount</div>
-
-                </div>
-                <!-- News -->
+            <div class="col-md-12">
+                <br>
+                <h2>Your Expenses</h2>
+                <p class="font-italic text-center">Track where your moolah is going</p>
+                <br>
             </div>
         </div>
+
+
+        <div class="row">
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-2 bg-light">
+                <br>
+                <h6> Select a Month:</h6>
+
+                <ul class="list-group" style="padding-bottom: 20px;">
+                    <li class="list-group-item d-flex justify-content-between align-items-center text-center">January
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center text-center">February
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center text-center">March</li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center text-center">April</li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center text-center">May</li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center text-center">June</li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center text-center">July</li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center text-center">August
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center text-center">September
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center text-center">October
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center text-center">November
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center text-center">December
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-8">
+                <div class="row" style="padding-left: 40px; padding-right: 40px;">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Category</th>
+                                <th>Expense Name</th>
+                                <th>Amount Spent</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>DropdownList</td>
+                                <td>input field</td>
+                                <td>$$$$</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr class="footable-editing">
+                                <td colspan="6">
+                                    <button type="button" class="btn btn-secondary">
+                                        <span><i class="fas fa-plus"></i> Add Expenses</span>
+                                    </button> 
+                                    <button type="button" class="btn btn-secondary">
+                                        <span><i class="fas fa-edit"></i> Edit Expenses</span>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    ​
+                </div>
+            </div>
+        </div>
+	</div>
+</div>
+
+
+        <div class="col-md-1">
+        </div>
     </div>
+    </div>
+
     <!-- Script Files -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="js/expenses.js"></script>
 </body>
 
 </html>
