@@ -1,7 +1,7 @@
 <!-- this is a place holder for the budget page in our application -->
 <!DOCTYPE html>
 <html lang="en">
-
+​
 <head>
     <title>moolah. - Budget</title>
     <meta charset="UTF-8">
@@ -10,8 +10,9 @@
     <link href="https://fonts.googleapis.com/css?family=Comfortaa&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <link href="stylesheets/style.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery-footable/3.1.6/footable.bootstrap.css">
 </head>
-
+​
 <body>
     <!-- Adding NavBar -->
     <nav class="navbar navbar-default">
@@ -23,7 +24,7 @@
             </div>
         </div>
     </nav>
-
+​
     <!-- Main Content -->
     <div class="container">
         <div class="row">
@@ -38,7 +39,7 @@
                 Side Bar - All the "Goalz" content will appear here
             </div>
             <!-- Main Content -->
-            <div class="col-12 col-md-8">
+            <div class="col-12 col-md-8 mainContentDiv">
                 <h1>Your moolah.</h1>
                 <!-- Add drop down for month -->
                 <div class="dropdown dropmenuBtn">
@@ -60,36 +61,149 @@
                         <button class="dropdown-item" href="#">December</button>
                     </div>
                 </div>
+                <!-- Table -->
                 <div class="row">
-                    <!-- Columns -->
-                    <div class="col-4 col-md-4 category-col">Category</div>
-                    <div class="col-4 col-md-4 expenseName-col">Expense
+​
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Category</th>
+                                <th>Amount</th>
+                                <th data-breakpoints="xs">Total Spent</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-expanded="true">
+                                <td>Housing</td>
+                                <td>1000</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>Utilities</td>
+                                <td>100</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+​
+                                <td>Transportation</td>
+                                <td>200</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>Food</td>
+                                <td>300</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>Shopping</td>
+                                <td>200</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>Leisure</td>
+                                <td>200</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>Miscellaneous</td>
+                                <td>100</td>
+                                <td>0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+​
+​
+                    <!-- Modal -->
+​
+​
+                    <div class="modal fade" id="editor-modal" tabindex="-1" role="dialog" aria-labelledby="editor-title">
+                        <style scoped>
+                            /* provides a red astrix to denote required fields - this should be included in common stylesheet */
+                            
+                            .form-group.required .control-label:after {
+                                content: "*";
+                                color: red;
+                                margin-left: 4px;
+                            }
+                        </style>
+                        <div class="modal-dialog" role="document">
+                            <form class="modal-content form-horizontal" id="editor">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                            aria-hidden="true">×</span></button>
+                                    <h4 class="modal-title" id="editor-title">Add Row</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <input type="number" id="id" name="id" class="hidden" />
+                                    <div class="form-group required">
+                                        <label for="firstName" class="col-sm-3 control-label">First Name</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group required">
+                                        <label for="lastName" class="col-sm-3 control-label">Last Name</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="jobTitle" class="col-sm-3 control-label">Job Title</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="jobTitle" name="jobTitle" placeholder="Job Title">
+                                        </div>
+                                    </div>
+                                    <div class="form-group required">
+                                        <label for="startedOn" class="col-sm-3 control-label">Started On</label>
+                                        <div class="col-sm-9">
+                                            <input type="date" class="form-control" id="startedOn" name="startedOn" placeholder="Started On" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="dob" class="col-sm-3 control-label">Date of Birth</label>
+                                        <div class="col-sm-9">
+                                            <input type="date" class="form-control" id="dob" name="dob" placeholder="Date of Birth">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-primary">Save changes</button>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
-                    <div class="col-4 col-md-4 amount-col">Amount</div>
                 </div>
-                <div class="row">
-                    <div class="col-8 col-md-8"> </div>
-                    <div class="col-4 col-md-4">Totals</div>
-                </div>
+​
+​
+​
                 <!-- Button to add expenses -->
                 <div class="row">
-                    <a href="/addexpense"><i class="fas fa-plus plusBtn"></i></a>
+                    <a href="/addexpenses"><i class="fas fa-plus plusBtn"></i></a>
                 </div>
                 <!-- News -->
             </div>
-            <div class="col-6 col-md-2">
-                <h1>News</h1>
-                Side Bar - All the News articles will appear here
-                <div class="row">
-                    <div class="col-12 financeNews-col">NEWS</div>
+
+            <div class="card col-12 col-md-2" >
+                <div class="card-header text-white bg-success">
+                    <h1><i class="far fa-newspaper"></i>News</h1>
+                </div>
+                <div class="card-body col-12 financeNews-col">
                 </div>
             </div>
+
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/c6c0d775a0.js" crossorigin="anonymous"></script>
+    <script src="js/budget.js"></script>
+    <script src="js/budget-sidebar.js"></script>
 </body>
-
+​
 </html>
+
+
+
+
