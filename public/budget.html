@@ -1,7 +1,8 @@
 <!-- this is a place holder for the budget page in our application -->
 <!DOCTYPE html>
 <html lang="en">
-​
+
+
 <head>
     <title>moolah. - Budget</title>
     <meta charset="UTF-8">
@@ -12,19 +13,29 @@
     <link href="stylesheets/style.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery-footable/3.1.6/footable.bootstrap.css">
 </head>
-​
+
 <body>
     <!-- Adding NavBar -->
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="/logout">
-                    Logout
-                </a>
-            </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand font-weight-bold" href="#">moolah.</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/budget">Budget <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/addexpenses">Expenses</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">Logout</a>
+                </li>
+            </ul>
         </div>
     </nav>
-​
+    <br>
     <!-- Main Content -->
     <div class="container">
         <div class="row">
@@ -34,12 +45,12 @@
         </div>
         <div class="row">
             <!-- Goalz -->
-            <div class="col-6 col-md-2">
+            <div class="col-md-2">
                 <h1>Goalz</h1>
                 Side Bar - All the "Goalz" content will appear here
             </div>
             <!-- Main Content -->
-            <div class="col-12 col-md-8 mainContentDiv">
+            <div class="col-md-8 mainContentDiv">
                 <h1>Your moolah.</h1>
                 <!-- Add drop down for month -->
                 <div class="dropdown dropmenuBtn">
@@ -61,9 +72,10 @@
                         <button class="dropdown-item" href="#">December</button>
                     </div>
                 </div>
+                <hr>
                 <!-- Table -->
                 <div class="row">
-​
+                    ​
                     <table class="table">
                         <thead>
                             <tr>
@@ -84,7 +96,7 @@
                                 <td>0</td>
                             </tr>
                             <tr>
-​
+                                ​
                                 <td>Transportation</td>
                                 <td>200</td>
                                 <td>0</td>
@@ -111,11 +123,9 @@
                             </tr>
                         </tbody>
                     </table>
-​
-​
+                    ​ ​
                     <!-- Modal -->
-​
-​
+                    ​ ​
                     <div class="modal fade" id="editor-modal" tabindex="-1" role="dialog" aria-labelledby="editor-title">
                         <style scoped>
                             /* provides a red astrix to denote required fields - this should be included in common stylesheet */
@@ -174,9 +184,7 @@
                         </div>
                     </div>
                 </div>
-​
-​
-​
+                ​ ​ ​
                 <!-- Button to add expenses -->
                 <div class="row">
                     <a href="/addexpenses"><i class="fas fa-plus plusBtn"></i></a>
@@ -184,7 +192,7 @@
                 <!-- News -->
             </div>
 
-            <div class="card col-12 col-md-2" >
+            <div class="card col-md-2">
                 <div class="card-header text-white bg-success">
                     <h1><i class="far fa-newspaper"></i>News</h1>
                 </div>
@@ -202,8 +210,5 @@
     <script src="js/budget-sidebar.js"></script>
 </body>
 ​
+
 </html>
-
-
-
-
