@@ -39,16 +39,15 @@
     <!-- Main Content -->
     <div class="container">
         <div class="row">
-            <div class="col-md-6 col-md-offset-3">
+            <div class="col-md-12 col-md-offset-3">
                 <h2>Welcome <span class="user-name"></span></h2>
             </div>
         </div>
         <div class="row">
             <!-- Goalz -->
-            <div class="card col- col-md-2">
+            <div class="card col-md-2">
                 <div class="card-header text-white bg-success">
-                    <h1>Goalz</h1>
-                    Side Bar - All the "Goalz" content will appear here
+                    <h1><i class="fas fa-coins"></i>Goalz</h1>
                 </div>
                 <div class="card-body col-12 goalz-col">
                     <div class="form-group">
@@ -88,7 +87,6 @@
                 <hr>
                 <!-- Table -->
                 <div class="row">
-                    ​
                     <table class="table">
                         <thead>
                             <tr>
@@ -135,9 +133,18 @@
                                 <td>0</td>
                             </tr>
                         </tbody>
+                        <tfoot>
+                            <tr class="footable-editing">
+                                <td colspan=6>
+                                    <button type="button" class="btn btn-primary footable-show" data-target="#editor-modal" data-toggle="modal"><span
+                                            class="fooicon fooicon-pencil" aria-hidden="true"></span> Edit Budget
+                                        Totals</button>
+                                </td>
+                            </tr>
+                        </tfoot>
                     </table>
-                    ​ ​
-                    <!-- Modal -->
+
+                    <!-- Table Modal -->
                     ​ ​
                     <div class="modal fade" id="editor-modal" tabindex="-1" role="dialog" aria-labelledby="editor-title">
                         <style scoped>
@@ -199,13 +206,13 @@
                 </div>
                 ​ ​ ​
                 <!-- Button to add expenses -->
-                <div class="row">
+                <!-- <div class="row">
                     <a href="/addexpenses"><i class="fas fa-plus plusBtn"></i></a>
-                </div>
+                </div> -->
                 <!-- News -->
             </div>
 
-            <div class="card col-6 col-md-2">
+            <div class="card col-md-2">
                 <div class="card-header text-white bg-success">
                     <h1><i class="far fa-newspaper"></i>News</h1>
                 </div>

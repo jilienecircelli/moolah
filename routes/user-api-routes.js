@@ -51,6 +51,10 @@ module.exports = function(app) {
         }
     });
 
+    app.post("/api/user_date", function(req, res) {
+        res.json(req.user);
+    });
+
 
     app.get("/api/expenses", function(req, res) {
         db.Expenses.findAll({}).then(function(result) {
@@ -63,7 +67,7 @@ module.exports = function(app) {
     });
 
 
-// include budget and goal information 
+    // include budget and goal information 
 
 
 
