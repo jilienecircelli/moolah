@@ -1,4 +1,26 @@
-$(document).ready(function() {
+
+function handleLoginErr(err) {
+    $("#alert .msg").text(err.responseJSON);
+    $("#alert").fadeIn(500);
+}
+
+// Does a post to the signup route. If successful, we are redirected to the members page
+// Otherwise we log any errors
+function signUpUser(firstName, lastName, email, password) {
+    $.post("/api/signup", {
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        password: password
+    })
+        .then(function (data) {
+            window.location.replace("/budget");
+            // If there's an error, handle it by throwing up a bootstrap alert
+        })
+        .catch(handleLoginErr);
+}
+
+$(document).ready(function () {
     // Getting references to our form and input
     var signUpForm = $("form.signup");
     var firstNameInput = $("input#firstName-input");
@@ -7,7 +29,7 @@ $(document).ready(function() {
     var passwordInput = $("input#password-input");
 
     // When the signup button is clicked, we validate the email and password are not blank
-    signUpForm.on("submit", function(event) {
+    signUpForm.on("submit", function (event) {
         event.preventDefault();
         var userData = {
             firstName: firstNameInput.val().trim(),
@@ -27,24 +49,4 @@ $(document).ready(function() {
         passwordInput.val("");
     });
 
-    // Does a post to the signup route. If successful, we are redirected to the members page
-    // Otherwise we log any errors
-    function signUpUser(firstName, lastName, email, password) {
-        $.post("/api/signup", {
-                firstName: firstName,
-                lastName: lastName,
-                email: email,
-                password: password
-            })
-            .then(function(data) {
-                window.location.replace("/budget");
-                // If there's an error, handle it by throwing up a bootstrap alert
-            })
-            .catch(handleLoginErr);
-    }
-
-    function handleLoginErr(err) {
-        $("#alert .msg").text(err.responseJSON);
-        $("#alert").fadeIn(500);
-    }
 });
