@@ -38,6 +38,10 @@ h2 {
     text-shadow: 2px;
 }
 
+.welcome-user {
+    text-align: center;
+}
+
 .login-signup {
     display: flex;
     justify-content: space-between;
