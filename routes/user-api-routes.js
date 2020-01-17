@@ -58,16 +58,16 @@ module.exports = function(app) {
 
     app.get("/api/expenses", function(req, res) {
         db.Expenses.findAll({}).then(function(result) {
-                res.json(result)
+                res.json(result);
             })
             .catch(function(err) {
-                console.log("Something went wrong finding all posts:(", err)
-                res.status(500).send()
-            })
+                console.log("Something went wrong finding all posts:(", err);
+                res.status(500).send();
+            });
     });
 
 
-    // include budget and goal information 
+    // include budget and goal information
 
 
 

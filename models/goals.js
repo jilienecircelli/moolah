@@ -24,9 +24,8 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.INTEGER,
             allowNull: false,
         },
-    
     });
     return Goals;
 };
 
-//create association - belong to a user - foreign key will be user Id 
+//create association - belong to a user - foreign key will be user Id

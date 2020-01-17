@@ -54,8 +54,9 @@ $(document).ready(function() {
         }),
         uid = 10;
     $editor.on("submit", function(e) {
-        if (this.checkValidity && !this.checkValidity()) return;
-        e.preventDefault();
+        if (this.checkValidity && !this.checkValidity()) {
+            return;
+        } e.preventDefault();
         var row = $modal.data("row"),
             values = {
                 category: $editor.find("#category").val(),

@@ -17,7 +17,7 @@ var queryURL = "https://newsapi.org/v2/top-headlines?country=us&category=busines
 
         console.log("title is: ", title);
 
-        var $articleTitle = $(`<h8> ${title}</h8> <br>`);
+        var $articleTitle = $("<h8> ${title}</h8> <br>");
         $articleTitle.addClass("card-title");
         $(".financeNews-col").append($articleTitle); 
 

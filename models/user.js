@@ -27,7 +27,7 @@ module.exports = function (sequelize, DataTypes) {
     }
   });
 
-  //add association 
+  //add association
 // two assocaiation 1. has many budgest and goals
 
 
