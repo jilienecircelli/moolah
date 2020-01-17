@@ -15,11 +15,11 @@ var queryURL = "https://newsapi.org/v2/top-headlines?country=us&category=busines
         var url = article.url;
         var description = article.description;
 
-        console.log("title is: ", title);
+        console.log('title is: ', title);
 
-        var $articleTitle = $("<h8> ${title}</h8> <br>");
-        $articleTitle.addClass("card-title");
-        $(".financeNews-col").append($articleTitle); 
+        var $articleTitle = $('<h8> ${title}</h8> <br>');
+        $articleTitle.addClass('card-title');
+        $('.financeNews-col').append($articleTitle); 
 
         // var $articleDescription = $(`<h7> ${description}</h7> <br>`);
         // $articleDescription.addClass("card-text");

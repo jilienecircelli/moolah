@@ -3,25 +3,11 @@ $(document).ready(function () {
         $(".user-name").text(user.firstName);
     });
 
-    // $('.dropdown-toggle').dropdown()
-    //     //we need to display the persons current expenses and the news in a card to the right
-    //     // AJAX call for API
-    // var queryURL = "";
+    var $tableID = $('#table');
+    var $BTN = $('#export-btn');
+    var $EXPORT = $('#export');
 
-    // $.ajax({
-    //     url: queryURL,
-    //     method: "GET"
-    // }).then(function(response) {
-
-    // })
-
-    // Budget Table
-
-    const $tableID = $('#table');
-    const $BTN = $('#export-btn');
-    const $EXPORT = $('#export');
-
-    const newTr = `
+    var newTr = `
 <tr class="hide">
   <td class="pt-3-half" contenteditable="true">Example</td>
   <td class="pt-3-half" contenteditable="true">Example</td>
@@ -87,3 +73,4 @@ $(document).ready(function () {
         // Output the result
         $EXPORT.text(JSON.stringify(data));
     });
+})
