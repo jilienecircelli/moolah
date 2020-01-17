@@ -4,7 +4,7 @@
 
 
 <head>
-    <title>moolah. - Budget</title>
+    <title>moolah. Budget</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -86,6 +86,38 @@
                 </div>
                 <hr>
                 <!-- Table -->
+                <!-- Default form grid -->
+                <form>
+                    <div class="row">
+                        <div class="col">
+                            <!-- Default input -->
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <label class="input-group-text" id="categoryChoice" for="categoryChoice">Category</label>
+                                </div>
+                                <select class="browser-default custom-select" id="categoryChoice">
+                                    <option selected>Options...</option>
+                                    <option value="Housing">Housing</option>
+                                    <option value="Utilities">Utilities</option>
+                                    <option value="Transportation">Transportation</option>
+                                    <option value="Food">Food</option>
+                                    <option value="Shopping">Shopping</option>
+                                    <option value="Leisure">Leisure</option>
+                                    <option value="Miscellaneous">Miscellaneous</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <!-- Default input -->
+                            <input type="text" class="form-control" id="budgetAmount" placeholder="Amount">
+                        </div>
+                        <div class="col">
+                            <button type="submit" id="submitBudget" class="btn btn-primary mb-2">Add Budget</button>
+                        </div>
+                    </div>
+                </form>
+                <!-- Default form grid -->
+
 
                 <!-- Editable table -->
                 <div class="card">
@@ -102,39 +134,39 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td class="pt-3-half" contenteditable="false">Housing</td>
-                                        <td class="pt-3-half" contenteditable="true">1000</td>
-                                        <td class="pt-3-half" contenteditable="false">0</td>
+                                        <td class="pt-3-half">Housing</td>
+                                        <td class="pt-3-half" id="housingAmt">1000</td>
+                                        <td class="pt-3-half" id="housingTotal">0</td>
                                     </tr>
                                     <tr>
-                                        <td class="pt-3-half" contenteditable="false">Utilities</td>
-                                        <td class="pt-3-half" contenteditable="true">200</td>
-                                        <td class="pt-3-half" contenteditable="false">0</td>
+                                        <td class="pt-3-half">Utilities</td>
+                                        <td class="pt-3-half" id="utilitiesAmt">200</td>
+                                        <td class="pt-3-half" id="utilitiesTotal">0</td>
                                     </tr>
                                     <tr>
-                                        <td class="pt-3-half" contenteditable="false">Transportation</td>
-                                        <td class="pt-3-half" contenteditable="true">150</td>
-                                        <td class="pt-3-half" contenteditable="false">0</td>
+                                        <td class="pt-3-half">Transportation</td>
+                                        <td class="pt-3-half" id="transportAmt">150</td>
+                                        <td class="pt-3-half" id="transportTotal">0</td>
                                     </tr>
                                     <tr>
-                                        <td class="pt-3-half" contenteditable="false">Food</td>
-                                        <td class="pt-3-half" contenteditable="true">300</td>
-                                        <td class="pt-3-half" contenteditable="false">0</td>
+                                        <td class="pt-3-half">Food</td>
+                                        <td class="pt-3-half" id="foodAmt">300</td>
+                                        <td class="pt-3-half" id="foodTotal">0</td>
                                     </tr>
                                     <tr>
-                                        <td class="pt-3-half" contenteditable="false">Shopping</td>
-                                        <td class="pt-3-half" contenteditable="true">300</td>
-                                        <td class="pt-3-half" contenteditable="false">0</td>
+                                        <td class="pt-3-half">Shopping</td>
+                                        <td class="pt-3-half" id="shoppingAmt">300</td>
+                                        <td class="pt-3-half" id="shoppingTotal">0</td>
                                     </tr>
                                     <tr>
-                                        <td class="pt-3-half" contenteditable="false">Leisure</td>
-                                        <td class="pt-3-half" contenteditable="true">200</td>
-                                        <td class="pt-3-half" contenteditable="false">0</td>
+                                        <td class="pt-3-half">Leisure</td>
+                                        <td class="pt-3-half" id="leisureAmt">200</td>
+                                        <td class="pt-3-half" id="leisureTotal">0</td>
                                     </tr>
                                     <tr>
-                                        <td class="pt-3-half" contenteditable="false">Miscellaneous</td>
-                                        <td class="pt-3-half" contenteditable="true">100</td>
-                                        <td class="pt-3-half" contenteditable="false">0</td>
+                                        <td class="pt-3-half">Miscellaneous</td>
+                                        <td class="pt-3-half" id="miscAmt">100</td>
+                                        <td class="pt-3-half" id="miscTotal">0</td>
                                     </tr>
 
                                     <!-- This is our clonable table line -->
