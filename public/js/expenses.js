@@ -1,119 +1,87 @@
-jQuery(function($){
-	$('.table').footable();
-});
+const $tableID = $('#table');
+ const $BTN = $('#export-btn');
+ const $EXPORT = $('#export');
 
-jQuery(function($){
-	var $modal = $('#editor-modal'),
-		$editor = $('#editor'),
-		$editorTitle = $('#editor-title'),
-		ft = FooTable.init('#showcase-example-1', {
-			columns: $.get("../../content/columns.json"),
-			rows: $.get("../../content/rows.json"),
-			editing: {
-				addRow: function(){
-					$modal.removeData('row');
-					$editor[0].reset();
-					$editorTitle.text('Add a new row');
-					$modal.modal('show');
-				},
-				editRow: function(row){
-					var values = row.val();
-					$editor.find('#id').val(values.id);
-					$editor.find('#firstName').val(values.firstName);
-					$editor.find('#lastName').val(values.lastName);
-					$editor.find('#jobTitle').val(values.jobTitle);
-					$editor.find('#status').val(values.status);
-					$editor.find('#startedOn').val(values.started.format('YYYY-MM-DD'));
-					$editor.find('#dob').val(values.dob.format('YYYY-MM-DD'));
-					$modal.data('row', row);
-					$editorTitle.text('Edit row #' + values.id);
-					$modal.modal('show');
-				},
-				deleteRow: function(row){
-					if (confirm('Are you sure you want to delete the row?')){
-						row.delete();
-					}
-				}
-			}
-		}),
-		uid = 10001;
+ const newTr = `
+// <tr class="hide">
+//   <td class="pt-3-half" contenteditable="true">Example</td>
+//   <td class="pt-3-half" contenteditable="true">Example</td>
+//   <td class="pt-3-half" contenteditable="true">Example</td>
+//   <td class="pt-3-half" contenteditable="true">Example</td>
+//   <td class="pt-3-half" contenteditable="true">Example</td>
+//   <td class="pt-3-half">
+//     <span class="table-up"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-up" aria-hidden="true"></i></a></span>
+//     <span class="table-down"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-down" aria-hidden="true"></i></a></span>
+//   </td>
+//   <td>
+//     <span class="table-remove"><button type="button" class="btn btn-danger btn-rounded btn-sm my-0 waves-effect waves-light">Remove</button></span>
+//   </td>
+// </tr>`;
 
-	$editor.on('submit', function(e){
-		if (this.checkValidity && !this.checkValidity()) return;
-		e.preventDefault();
-		var row = $modal.data('row'),
-			values = {
-				id: $editor.find('#id').val(),
-				firstName: $editor.find('#firstName').val(),
-				lastName: $editor.find('#lastName').val(),
-				jobTitle: $editor.find('#jobTitle').val(),
-				started: moment($editor.find('#startedOn').val(), 'YYYY-MM-DD'),
-				dob: moment($editor.find('#dob').val(), 'YYYY-MM-DD'),
-				status: $editor.find('#status option:selected').val()
-			};
+ $('.table-add').on('click', () => {
 
-		if (row instanceof FooTable.Row){
-			row.val(values);
-		} else {
-			values.id = uid++;
-			ft.rows.add(values);
-		}
-		$modal.modal('hide');
-	});
-});
+   const $clone = $tableID.find('tbody tr').clone(true).removeClass('hide table-line');
 
-var $modal = $('#editor-modal'),
-	$editor = $('#editor'),
-	$editorTitle = $('#editor-title'),
-	ft = FooTable.init('#editing-example', {
-		editing: {
-			enabled: true,
-			addRow: function(){
-				$modal.removeData('row');
-				$editor[0].reset();
-				$editorTitle.text('Add a new row');
-				$modal.modal('show');
-			},
-			editRow: function(row){
-				var values = row.val();
-				$editor.find('#id').val(values.id);
-				$editor.find('#firstName').val(values.firstName);
-				$editor.find('#lastName').val(values.lastName);
-				$editor.find('#jobTitle').val(values.jobTitle);
-				$editor.find('#startedOn').val(values.startedOn);
-				$editor.find('#dob').val(values.dob);
+   if ($tableID.find('tbody tr').length === 0) {
 
-				$modal.data('row', row);
-				$editorTitle.text('Edit row #' + values.id);
-				$modal.modal('show');
-			},
-			deleteRow: function(row){
-				if (confirm('Are you sure you want to delete the row?')){
-					row.delete();
-				}
-			}
-		}
-	}),
-	uid = 10;
+     $('tbody').append(newTr);
+   }
 
-$editor.on('submit', function(e){
-	if (this.checkValidity && !this.checkValidity()) return;
-	e.preventDefault();
-	var row = $modal.data('row'),
-		values = {
-			id: $editor.find('#id').val(),
-			firstName: $editor.find('#firstName').val(),
-			lastName: $editor.find('#lastName').val(),
-			jobTitle: $editor.find('#jobTitle').val(),
-			startedOn: moment($editor.find('#startedOn').val(), 'YYYY-MM-DD'),
-			dob: moment($editor.find('#dob').val(), 'YYYY-MM-DD')
-		};
+   $tableID.find('table').append($clone);
+ });
 
-	if (row instanceof FooTable.Row){
-		row.val(values);
-	} else {
-		values.id = uid++;
-		ft.rows.add(values);
-	}
-	$modal.modal('hide');
-});
+ $tableID.on('click', '.table-remove', function () {
+
+   $(this).parents('tr').detach();
+ });
+
+ $tableID.on('click', '.table-up', function () {
+
+   const $row = $(this).parents('tr');
+
+   if ($row.index() === 1) {
+     return;
+   }
+
+   $row.prev().before($row.get(0));
+ });
+
+ $tableID.on('click', '.table-down', function () {
+
+   const $row = $(this).parents('tr');
+   $row.next().after($row.get(0));
+ });
+
+ // A few jQuery helpers for exporting only
+ jQuery.fn.pop = [].pop;
+ jQuery.fn.shift = [].shift;
+
+ $BTN.on('click', () => {
+
+   const $rows = $tableID.find('tr:not(:hidden)');
+   const headers = [];
+   const data = [];
+
+   // Get the headers (add special header logic here)
+   $($rows.shift()).find('th:not(:empty)').each(function () {
+
+     headers.push($(this).text().toLowerCase());
+   });
+
+   // Turn all existing rows into a loopable array
+   $rows.each(function () {
+     const $td = $(this).find('td');
+     const h = {};
+
+     // Use the headers from earlier to name our hash keys
+     headers.forEach((header, i) => {
+
+       h[header] = $td.eq(i).text();
+     });
+
+     data.push(h);
+   });
+
+   // Output the result
+   $EXPORT.text(JSON.stringify(data));
+ });
