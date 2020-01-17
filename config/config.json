@@ -1,7 +1,7 @@
 {
     "development": {
         "username": "root",
-        "password": "root",
+        "password": "mysqlmysql",
         "database": "moolah_db",
         "host": "127.0.0.1",
         "dialect": "mysql"
@@ -14,10 +14,10 @@
         "dialect": "mysql"
     },
     "production": {
-        "username": "root",
-        "password": null,
-        "database": "database_production",
-        "host": "127.0.0.1",
+        "username": "z3o76wvxpp82xz3a",
+        "password": "nhrf1gfruz9x1w5a",
+        "database": "c4wdtd8tt56l3hp6",
+        "host": "nba02whlntki5w2p.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
         "dialect": "mysql"
     }
 }
