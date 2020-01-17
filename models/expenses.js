@@ -24,6 +24,6 @@ module.exports = function (sequelize, DataTypes) {
     return Expenses;
 };
 
-//create association - belong to a user - foreign key will be user Id 
+//create association - belong to a user - foreign key will be user Id
 
 //belongs to a budget
