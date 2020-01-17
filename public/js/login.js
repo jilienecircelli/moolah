@@ -1,3 +1,18 @@
+// loginUser does a post to our "api/login" route and if successful, redirects us the the members page
+function loginUser(email, password) {
+    $.post("/api/login", {
+            email: email,
+            password: password
+        })
+        .then(function() {
+            window.location.replace("/budget");
+            // If there's an error, log the error
+        })
+        .catch(function(err) {
+            console.log(err);
+        });
+}
+
 $(document).ready(function() {
     // Getting references to our form and inputs
     var loginForm = $("form.login");
@@ -21,19 +36,4 @@ $(document).ready(function() {
         emailInput.val("");
         passwordInput.val("");
     });
-
-    // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
-    function loginUser(email, password) {
-        $.post("/api/login", {
-                email: email,
-                password: password
-            })
-            .then(function() {
-                window.location.replace("/budget");
-                // If there's an error, log the error
-            })
-            .catch(function(err) {
-                console.log(err);
-            });
-    }
 });

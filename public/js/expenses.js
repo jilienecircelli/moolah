@@ -1,8 +1,9 @@
-jQuery(function($){
+/* eslint-disable quotes */
+jQuery(function ($) {
 	$('.table').footable();
 });
 
-jQuery(function($){
+jQuery(function ($) {
 	var $modal = $('#editor-modal'),
 		$editor = $('#editor'),
 		$editorTitle = $('#editor-title'),
@@ -10,13 +11,13 @@ jQuery(function($){
 			columns: $.get("../../content/columns.json"),
 			rows: $.get("../../content/rows.json"),
 			editing: {
-				addRow: function(){
+				addRow: function () {
 					$modal.removeData('row');
 					$editor[0].reset();
 					$editorTitle.text('Add a new row');
 					$modal.modal('show');
 				},
-				editRow: function(row){
+				editRow: function (row) {
 					var values = row.val();
 					$editor.find('#id').val(values.id);
 					$editor.find('#firstName').val(values.firstName);
@@ -29,8 +30,8 @@ jQuery(function($){
 					$editorTitle.text('Edit row #' + values.id);
 					$modal.modal('show');
 				},
-				deleteRow: function(row){
-					if (confirm('Are you sure you want to delete the row?')){
+				deleteRow: function (row) {
+					if (confirm('Are you sure you want to delete the row?')) {
 						row.delete();
 					}
 				}
@@ -38,9 +39,10 @@ jQuery(function($){
 		}),
 		uid = 10001;
 
-	$editor.on('submit', function(e){
-		if (this.checkValidity && !this.checkValidity()) return;
-		e.preventDefault();
+	$editor.on('submit', function (e) {
+		if (this.checkValidity && !this.checkValidity()) {
+			return;
+		} e.preventDefault();
 		var row = $modal.data('row'),
 			values = {
 				id: $editor.find('#id').val(),
@@ -52,7 +54,7 @@ jQuery(function($){
 				status: $editor.find('#status option:selected').val()
 			};
 
-		if (row instanceof FooTable.Row){
+		if (row instanceof FooTable.Row) {
 			row.val(values);
 		} else {
 			values.id = uid++;
@@ -68,13 +70,13 @@ var $modal = $('#editor-modal'),
 	ft = FooTable.init('#editing-example', {
 		editing: {
 			enabled: true,
-			addRow: function(){
+			addRow: function () {
 				$modal.removeData('row');
 				$editor[0].reset();
 				$editorTitle.text('Add a new row');
 				$modal.modal('show');
 			},
-			editRow: function(row){
+			editRow: function (row) {
 				var values = row.val();
 				$editor.find('#id').val(values.id);
 				$editor.find('#firstName').val(values.firstName);
@@ -87,8 +89,8 @@ var $modal = $('#editor-modal'),
 				$editorTitle.text('Edit row #' + values.id);
 				$modal.modal('show');
 			},
-			deleteRow: function(row){
-				if (confirm('Are you sure you want to delete the row?')){
+			deleteRow: function (row) {
+				if (confirm('Are you sure you want to delete the row?')) {
 					row.delete();
 				}
 			}
@@ -96,9 +98,10 @@ var $modal = $('#editor-modal'),
 	}),
 	uid = 10;
 
-$editor.on('submit', function(e){
-	if (this.checkValidity && !this.checkValidity()) return;
-	e.preventDefault();
+$editor.on('submit', function (e) {
+	if (this.checkValidity && !this.checkValidity()) {
+		return;
+	} e.preventDefault();
 	var row = $modal.data('row'),
 		values = {
 			id: $editor.find('#id').val(),
@@ -109,7 +112,7 @@ $editor.on('submit', function(e){
 			dob: moment($editor.find('#dob').val(), 'YYYY-MM-DD')
 		};
 
-	if (row instanceof FooTable.Row){
+	if (row instanceof FooTable.Row) {
 		row.val(values);
 	} else {
 		values.id = uid++;

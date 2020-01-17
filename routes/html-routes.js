@@ -8,7 +8,7 @@ module.exports = function(app) {
 
     app.get("/", function(req, res) {
         // If the user already has an account send them to the members page
-        res.redirect("/welcome")
+        res.redirect("/welcome");
     });
 
     // Added welcome route, but will change once we decide on the main default page
