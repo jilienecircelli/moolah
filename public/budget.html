@@ -21,7 +21,7 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        
+
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
@@ -66,50 +66,51 @@
                             <option value="Miscellaneous">Miscellaneous</option>
                         </select>
                     </div>
-                
+
                     <div class="col-12 newGoalz-col">
-                        <button type="button" class="btn btn-light" data-toggle="modal" data-target="#goalModal">New Goal</button>    
-                            <div class="modal fade" id="goalModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                <!--Modal: Contact form-->
-                                <div class="modal-dialog cascading-modal" role="document">
-                                    <!--Content-->
-                                    <div class="modal-content">
-                                        <!--Header-->
-                                        <div class="modal-header info-color white-text">
-                                            <h4 class="title">
+                        <button type="button" class="btn btn-light" data-toggle="modal" data-target="#goalModal">New
+                            Goal</button>
+                        <div class="modal fade" id="goalModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <!--Modal: Contact form-->
+                            <div class="modal-dialog cascading-modal" role="document">
+                                <!--Content-->
+                                <div class="modal-content">
+                                    <!--Header-->
+                                    <div class="modal-header info-color white-text">
+                                        <h4 class="title">
                                             <i class="far fa-money-bill-alt"></i> Goal</h4>
-                                            <button type="button" class="close waves-effect waves-light" data-dismiss="modal" aria-label="Close">
+                                        <button type="button" class="close waves-effect waves-light" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">×</span></button>
+                                    </div>
+
+                                    <!--Body-->
+                                    <div class="modal-body">
+                                        <label for="body">Set your goal:</label>
+                                        <textarea class="md-textarea form-control" rows="1" id="typeGoal"></textarea>
+                                        <br>
+                                        <label for="amountOfGoal">Set your amount:</label>
+                                        <input type="number" name="quantity" min="0" max="999999999999999999999999" class="md-textarea form-control" rows="1" id="goalAmount"></input>
+                                        <div class="form-group">
+                                            <label for="category">Select Category:</label>
+                                            <select class="custom-select" id="category">
+                                                <option value="Political">Housing</option>
+                                                <option value="Transportation">Utilities</option>
+                                                <option value="Transportation">Transportation</option>
+                                                <option value="Product Review">Food</option>
+                                                <option value="Product Review">Shopping</option>
+                                                <option value="Political">Leisure</option>
+                                                <option value="Political">Miscellaneous</option>
+                                            </select>
                                         </div>
 
-                                        <!--Body-->
-                                        <div class="modal-body">            
-                                            <label for="body">Set your goal:</label>
-                                            <textarea class="md-textarea form-control" rows="1" id="typeGoal"></textarea>
-                                            <br>
-                                            <label for="amountOfGoal">Set your amount:</label>
-                                            <input type="number" name="quantity" min="0" max="999999999999999999999999" class="md-textarea form-control" rows="1" id="goalAmount"></input>
-                                            <div class="form-group">
-                                                <label for="category">Select Category:</label>                                          
-                                                <select class="custom-select" id="category">
-                                                    <option value="Political">Housing</option>
-                                                    <option value="Transportation">Utilities</option>
-                                                    <option value="Transportation">Transportation</option>
-                                                    <option value="Product Review">Food</option>
-                                                    <option value="Product Review">Shopping</option>
-                                                    <option value="Political">Leisure</option>
-                                                    <option value="Political">Miscellaneous</option>
-                                                </select>
-                                            </div>
-
-                                            <div class="text-center mt-4 mb-2">
-                                                <button class="btn btn-info">Get it!<i class="fa fa-send ml-2"></i></button>
-                                            </div>            
+                                        <div class="text-center mt-4 mb-2">
+                                            <button class="btn btn-info">Get it!<i class="fa fa-send ml-2"></i></button>
                                         </div>
                                     </div>
-                                <!--/.Content-->
                                 </div>
+                                <!--/.Content-->
                             </div>
+                        </div>
                     </div>
                 </div>
                 <br>
@@ -165,7 +166,6 @@
                             </form>
                         </div>
                         <br>
-                        <!-- Your Budget Table -->
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="card">
