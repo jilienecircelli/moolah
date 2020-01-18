@@ -50,11 +50,14 @@
         <div class="row">
             <div class="col-md-1">
             </div>
-            <div class="col-md-2 bg-light">
+            <div class="col-md-2 bg-light border rounded">
                 <br>
-                <h6> Select a Month:</h6>
+                <h6 class="font-weight-bold"> Select a Filter</h6>
 
                 <ul class="list-group" style="padding-bottom: 20px;">
+                    
+                    <li class="list-group-item d-flex justify-content-between align-items-center text-center font-weight-bold">All
+                    </li>
                     <li class="list-group-item d-flex justify-content-between align-items-center text-center">January
                     </li>
                     <li class="list-group-item d-flex justify-content-between align-items-center text-center">February
@@ -76,25 +79,42 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-md-9">
+            <div class="col-md-8">
                 <!-- Editable table -->
                 <div class="card">
-                    <h6 class="card-header text-center font-weight-bold">Add Expenses</h6>
+                    <h6 class="card-header font-weight-bold bg-light">Add Expenses</h6>
                     <form style="padding: 20px;">
-
-                        <div class="form-row">
-                            <div class="form-group col-md-6 mx-auto">
+                        <div class="form row align-items-center">
+                            <div class="form-group col-md-6">
                                 <label for="expense-name">Expense Name:</label>
                                 <input type="text" class="form-control" id="expense-name">
                             </div>
-                            <div class="form-group col-md-6 mx-auto">
+                            <div class="form-group col-md-6">
                                 <label for="expense-amount">Amount Spent:</label>
                                 <input type="text" class="form-control" id="expense-amount">
                             </div>
                         </div>
                         <div class="form-row align-items-center">
-                            <div class="form-group col-md-12">
-                                <label for="expense-category">Category:</label>
+                            <div class="form-group col-md-6">
+                                <label for="expense-month" style="padding-right: 10px;"> Month:</label>
+                                <select id="expense-month" class="form-control">
+                                    <option selected>Select Category:</option>
+                                    <option value="January">January</option>
+                                    <option value="February">February</option>
+                                    <option value="March">March</option>
+                                    <option value="April">April</option>
+                                    <option value="May">May</option>
+                                    <option value="June">June</option>
+                                    <option value="July">July</option>
+                                    <option value="August">August</option>
+                                    <option value="September">September</option>
+                                    <option value="October">October</option>
+                                    <option value="November">November</option>
+                                    <option value="December">December</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="expense-category" style="padding-left: 10px;">Category:</label>
                                 <select id="expense-category" class="form-control">
                                     <option selected>Select Category:</option>
                                     <option value="Housing">Housing</option>
@@ -107,12 +127,12 @@
                                 </select>
                             </div>
                         </div>
-                        <button type="submit text-" class="btn btn-secondary">Save Expense</button>
+                        <button type="submit" class="btn btn-secondary" id="save-expense">Save Expense</button>
                         </form>
                 </div>
                 <br>
                 <div class="card">
-                    <h6 class="card-header text-center font-weight-bold">Your Expenses</h6>
+                    <h6 class="card-header font-weight-bold bg-light">Your Expenses</h6>
                     <div class="card-body">
                         <div id="table" class="table-editable">
                             <table class="table table-bordered table-responsive-md table-striped text-center">
@@ -124,25 +144,10 @@
                                         <th class="text-center">Action</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <!-- This is our clonable table line -->
-                                    <tr class="hide">
-                                        <td class="pt-3-half" contenteditable="true">
-                                            <div class="input-group mb-3">
-                                            </div>
-                                        </td>
-                                        <td class="pt-3-half" id="expense-name">
-                                        </td>
-                                        <td class="pt-3-half" id="expense-amount">
-                                        </td>
-                                        <td>
-                                            <span class="table-edit"><button type="button"
-                                                    class="btn btn-secondary btn-rounded btn-sm my-0"><i
-                                                        class="fa fa-pencil-alt"></i></button></span>
-                                            <span class="table-remove"><button type="button"
-                                                    class="btn btn-secondary btn-rounded btn-sm my-0"><i
-                                                        class="fas fa-trash"></i></button></span>
-                                        </td>
+                                <tbody id="table-body">
+                                    
+                                    <tr>
+                                        
                                     </tr>
                                 </tbody>
                             </table>
