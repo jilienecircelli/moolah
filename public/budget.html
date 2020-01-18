@@ -44,32 +44,12 @@
             <div class="col-md-12 col-md-offset-3">
                 <h1>Your moolah.</h1>
                 <br>
-                <div class="dropdown dropmenuBtn">
-                    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                        Month
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <button class="dropdown-item" href="#">January</button>
-                        <button class="dropdown-item" href="#">February</button>
-                        <button class="dropdown-item" href="#">March</button>
-                        <button class="dropdown-item" href="#">April</button>
-                        <button class="dropdown-item" href="#">May</button>
-                        <button class="dropdown-item" href="#">June</button>
-                        <button class="dropdown-item" href="#">July</button>
-                        <button class="dropdown-item" href="#">August</button>
-                        <button class="dropdown-item" href="#">September</button>
-                        <button class="dropdown-item" href="#">October</button>
-                        <button class="dropdown-item" href="#">November</button>
-                        <button class="dropdown-item" href="#">December</button>
-                    </div>
-                </div>
                 <br>
             </div>
         </div>
         <div class="row">
             <!-- Goalz -->
-                        
+
             <div class="card col-md-2" style="padding: 20px;">
                 <div class="card-header bg-light border" style="padding-top: 10px;">
                     <h4 class="text-center"><i class="fas fa-coins" style="padding-top: 10px;"></i> Goalz</h4>
@@ -78,9 +58,13 @@
                     <div class="form-group">
                         <select class="custom-select" id="category">
                             <option selected value="">All Categories</option>
-                            <option value="Personal">Personal</option>
-                            <option value="Product Review">Family</option>
-                            <option value="Political">Entertainment</option>
+                            <option value="Housing">Housing</option>
+                                            <option value="Utilities">Utilities</option>
+                                            <option value="Transportation">Transportation</option>
+                                            <option value="Food">Food</option>
+                                            <option value="Shopping">Shopping</option>
+                                            <option value="Leisure">Leisure</option>
+                                            <option value="Miscellaneous">Miscellaneous</option>
                         </select>
                     </div>
                 </div>
@@ -89,92 +73,229 @@
 
             <!-- Main Content -->
             <div class="col-md-8 mainContentDiv" style="padding-left: 20px; padding-right: 20px;">
-            <!-- Editable table -->
-                <div class="card">
-                    <div class="card-body">
-                        <div id="table" class="table-editable" style="padding-top: 37px; padding-bottom: 37px;">
-                            <table class="table table-bordered table-responsive-md table-striped text-center">
-                                <thead>
-                                    <tr>
-                                        <th class="text-center">Category</th>
-                                        <th class="text-center">Amount</th>
-                                        <th class="text-center">Total Spent</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td class="pt-3-half">Housing</td>
-                                        <td class="pt-3-half" id="housingAmt">1000</td>
-                                        <td class="pt-3-half" id="housingTotal">0</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="pt-3-half">Utilities</td>
-                                        <td class="pt-3-half" id="utilitiesAmt">200</td>
-                                        <td class="pt-3-half" id="utilitiesTotal">0</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="pt-3-half">Transportation</td>
-                                        <td class="pt-3-half" id="transportAmt">150</td>
-                                        <td class="pt-3-half" id="transportTotal">0</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="pt-3-half">Food</td>
-                                        <td class="pt-3-half" id="foodAmt">300</td>
-                                        <td class="pt-3-half" id="foodTotal">0</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="pt-3-half">Shopping</td>
-                                        <td class="pt-3-half" id="shoppingAmt">300</td>
-                                        <td class="pt-3-half" id="shoppingTotal">0</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="pt-3-half">Leisure</td>
-                                        <td class="pt-3-half" id="leisureAmt">200</td>
-                                        <td class="pt-3-half" id="leisureTotal">0</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="pt-3-half">Miscellaneous</td>
-                                        <td class="pt-3-half" id="miscAmt">100</td>
-                                        <td class="pt-3-half" id="miscTotal">0</td>
-                                    </tr>
-
-                                    <!-- This is our clonable table line -->
-                                    <!-- <tr class="hide">
-                                        <td class="pt-3-half" contenteditable="true">Elisa Gallagher</td>
-                                        <td class="pt-3-half" contenteditable="true">31</td>
-                                        <td class="pt-3-half" contenteditable="true">Portica</td>
-                                        <td class="pt-3-half" contenteditable="true">United Kingdom</td>
-                                        <td class="pt-3-half" contenteditable="true">London</td>
-                                        <td class="pt-3-half">
-                                            <span class="table-up"><a href="#!" class="indigo-text"><i
-                                                        class="fas fa-long-arrow-alt-up"
-                                                        aria-hidden="true"></i></a></span>
-                                            <span class="table-down"><a href="#!" class="indigo-text"><i
-                                                        class="fas fa-long-arrow-alt-down"
-                                                        aria-hidden="true"></i></a></span>
-                                        </td>
-                                        <td>
-                                            <span class="table-remove"><button type="button"
-                                                    class="btn btn-danger btn-rounded btn-sm my-0">Remove</button></span>
-                                        </td>
-                                    </tr> -->
-                                </tbody>
-                            </table>
+                <!-- Editable table -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- Editable table -->
+                        <div class="card">
+                            <h6 class="card-header font-weight-bold bg-light">Add Budget</h6>
+                            <form style="padding: 20px;">
+                                <div class="form-row align-items-center">
+                                    <div class="form-group col-md-4">
+                                        <label for="expense-month" style="padding-right: 10px;"> Month:</label>
+                                        <select id="budget-month" class="form-control">
+                                            <option selected>Select Category:</option>
+                                            <option value="January">January</option>
+                                            <option value="February">February</option>
+                                            <option value="March">March</option>
+                                            <option value="April">April</option>
+                                            <option value="May">May</option>
+                                            <option value="June">June</option>
+                                            <option value="July">July</option>
+                                            <option value="August">August</option>
+                                            <option value="September">September</option>
+                                            <option value="October">October</option>
+                                            <option value="November">November</option>
+                                            <option value="December">December</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="budget-category" style="padding-left: 10px;">Category:</label>
+                                        <select id="budget-category" class="form-control">
+                                            <option selected>Select Category:</option>
+                                            <option value="Housing">Housing</option>
+                                            <option value="Utilities">Utilities</option>
+                                            <option value="Transportation">Transportation</option>
+                                            <option value="Food">Food</option>
+                                            <option value="Shopping">Shopping</option>
+                                            <option value="Leisure">Leisure</option>
+                                            <option value="Miscellaneous">Miscellaneous</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="budget-amount">Amount Budgeted:</label>
+                                        <input type="text" class="form-control" id="expense-amount">
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-secondary" id="save-budget">Save Budget</button>
+                            </form>
+                        </div>
+<br>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card">
+                                    <h6 class="card-header font-weight-bold bg-light">Your Budget</h6>
+                                    <div class="card-body"></div>
+                                    <div id="table" class="table-editable"
+                                        style="padding-right: 15px; padding-left: 15px;">
+                                        <table
+                                            class="table table-bordered table-responsive-md table-striped text-center">
+                                            <thead>
+                                                <tr>
+                                                    <th class="text-center"></th>
+                                                    <th class="text-center">Housing</th>
+                                                    <th class="text-center">Utilities</th>
+                                                    <th class="text-center">Transportation</th>
+                                                    <th class="text-center">Food</th>
+                                                    <th class="text-center">Shopping</th>
+                                                    <th class="text-center">Leisure</th>
+                                                    <th class="text-center">Miscellaneous</th>
+                                                    <th class="text-center">Amount Spent</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="pt-3-half font-weight-bold text-right">January</td>
+                                                    <td class="pt-3-half" id="janHousingBdgt">0</td>
+                                                    <td class="pt-3-half" id="janUtilitiesBdgt">0</td>
+                                                    <td class="pt-3-half" id="janTransportationBdgt">0</td>
+                                                    <td class="pt-3-half" id="janFoodBdgt">0</td>
+                                                    <td class="pt-3-half" id="janShoppingBdgt">0</td>
+                                                    <td class="pt-3-half" id="janLeisureBdgt">0</td>
+                                                    <td class="pt-3-half" id="janMiscBdgt">0</td>
+                                                    <td class="pt-3-half font-weight-bold" id="janTotalSpent">0</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="pt-3-half font-weight-bold text-right">February</td>
+                                                    <td class="pt-3-half" id="febHousingBdgt">0</td>
+                                                    <td class="pt-3-half" id="febUtilitiesBdgt">0</td>
+                                                    <td class="pt-3-half" id="febTransportationBdgt">0</td>
+                                                    <td class="pt-3-half" id="febFoodBdgt">0</td>
+                                                    <td class="pt-3-half" id="febShoppingBdgt">0</td>
+                                                    <td class="pt-3-half" id="febLeisureBdgt">0</td>
+                                                    <td class="pt-3-half" id="febMiscBdgt">0</td>
+                                                    <td class="pt-3-half font-weight-bold" id="febTotalSpent">0</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="pt-3-half font-weight-bold text-right">March</td>
+                                                    <td class="pt-3-half" id="marHousingBdgt">0</td>
+                                                    <td class="pt-3-half" id="marUtilitiesBdgt">0</td>
+                                                    <td class="pt-3-half" id="marTransportationBdgt">0</td>
+                                                    <td class="pt-3-half" id="marFoodBdgt">0</td>
+                                                    <td class="pt-3-half" id="marShoppingBdgt">0</td>
+                                                    <td class="pt-3-half" id="marLeisureBdgt">0</td>
+                                                    <td class="pt-3-half" id="marMiscBdgt">0</td>
+                                                    <td class="pt-3-half font-weight-bold" id="marTotalSpent">0</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="pt-3-half font-weight-bold text-right">April</td>
+                                                    <td class="pt-3-half" id="aprHousingBdgt">0</td>
+                                                    <td class="pt-3-half" id="aprUtilitiesBdgt">0</td>
+                                                    <td class="pt-3-half" id="aprTransportationBdgt">0</td>
+                                                    <td class="pt-3-half" id="aprFoodBdgt">0</td>
+                                                    <td class="pt-3-half" id="aprShoppingBdgt">0</td>
+                                                    <td class="pt-3-half" id="aprLeisureBdgt">0</td>
+                                                    <td class="pt-3-half" id="aprMiscBdgt">0</td>
+                                                    <td class="pt-3-half font-weight-bold" id="aprTotalSpent">0</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="pt-3-half font-weight-bold text-right">May</td>
+                                                    <td class="pt-3-half" id="mayHousingBdgt">0</td>
+                                                    <td class="pt-3-half" id="mayUtilitiesBdgt">0</td>
+                                                    <td class="pt-3-half" id="mayTransportationBdgt">0</td>
+                                                    <td class="pt-3-half" id="mayFoodBdgt">0</td>
+                                                    <td class="pt-3-half" id="mayShoppingBdgt">0</td>
+                                                    <td class="pt-3-half" id="mayLeisureBdgt">0</td>
+                                                    <td class="pt-3-half" id="mayMiscBdgt">0</td>
+                                                    <td class="pt-3-half font-weight-bold" id="mayTotalSpent">0</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="pt-3-half font-weight-bold text-right">June</td>
+                                                    <td class="pt-3-half" id="junHousingBdgt">0</td>
+                                                    <td class="pt-3-half" id="junUtilitiesBdgt">0</td>
+                                                    <td class="pt-3-half" id="junTransportationBdgt">0</td>
+                                                    <td class="pt-3-half" id="junFoodBdgt">0</td>
+                                                    <td class="pt-3-half" id="junShoppingBdgt">0</td>
+                                                    <td class="pt-3-half" id="junLeisureBdgt">0</td>
+                                                    <td class="pt-3-half" id="junMiscBdgt">0</td>
+                                                    <td class="pt-3-half font-weight-bold" id="junTotalSpent">0</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="pt-3-half font-weight-bold text-right">July</td>
+                                                    <td class="pt-3-half" id="julHousingBdgt">0</td>
+                                                    <td class="pt-3-half" id="julUtilitiesBdgt">0</td>
+                                                    <td class="pt-3-half" id="julTransportationBdgt">0</td>
+                                                    <td class="pt-3-half" id="julFoodBdgt">0</td>
+                                                    <td class="pt-3-half" id="julShoppingBdgt">0</td>
+                                                    <td class="pt-3-half" id="julLeisureBdgt">0</td>
+                                                    <td class="pt-3-half" id="julMiscBdgt">0</td>
+                                                    <td class="pt-3-half font-weight-bold" id="julTotalSpent">0</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="pt-3-half font-weight-bold text-right">August</td>
+                                                    <td class="pt-3-half" id="augHousingBdgt">0</td>
+                                                    <td class="pt-3-half" id="augUtilitiesBdgt">0</td>
+                                                    <td class="pt-3-half" id="augTransportationBdgt">0</td>
+                                                    <td class="pt-3-half" id="augFoodBdgt">0</td>
+                                                    <td class="pt-3-half" id="augShoppingBdgt">0</td>
+                                                    <td class="pt-3-half" id="augLeisureBdgt">0</td>
+                                                    <td class="pt-3-half" id="augMiscBdgt">0</td>
+                                                    <td class="pt-3-half font-weight-bold" id="augTotalSpent">0</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="pt-3-half font-weight-bold text-right">September</td>
+                                                    <td class="pt-3-half" id="sepHousingBdgt">0</td>
+                                                    <td class="pt-3-half" id="sepUtilitiesBdgt">0</td>
+                                                    <td class="pt-3-half" id="sepTransportationBdgt">0</td>
+                                                    <td class="pt-3-half" id="sepFoodBdgt">0</td>
+                                                    <td class="pt-3-half" id="sepShoppingBdgt">0</td>
+                                                    <td class="pt-3-half" id="sepLeisureBdgt">0</td>
+                                                    <td class="pt-3-half" id="sepMiscBdgt">0</td>
+                                                    <td class="pt-3-half font-weight-bold" id="sepTotalSpent">0</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="pt-3-half font-weight-bold text-right">October</td>
+                                                    <td class="pt-3-half" id="octHousingBdgt">0</td>
+                                                    <td class="pt-3-half" id="octUtilitiesBdgt">0</td>
+                                                    <td class="pt-3-half" id="octTransportationBdgt">0</td>
+                                                    <td class="pt-3-half" id="octFoodBdgt">0</td>
+                                                    <td class="pt-3-half" id="octShoppingBdgt">0</td>
+                                                    <td class="pt-3-half" id="octLeisureBdgt">0</td>
+                                                    <td class="pt-3-half" id="octMiscBdgt">0</td>
+                                                    <td class="pt-3-half font-weight-bold" id="octTotalSpent">0</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="pt-3-half font-weight-bold text-right">November</td>
+                                                    <td class="pt-3-half" id="novHousingBdgt">0</td>
+                                                    <td class="pt-3-half" id="novUtilitiesBdgt">0</td>
+                                                    <td class="pt-3-half" id="novTransportationBdgt">0</td>
+                                                    <td class="pt-3-half" id="novFoodBdgt">0</td>
+                                                    <td class="pt-3-half" id="novShoppingBdgt">0</td>
+                                                    <td class="pt-3-half" id="novLeisureBdgt">0</td>
+                                                    <td class="pt-3-half" id="novMiscBdgt">0</td>
+                                                    <td class="pt-3-half font-weight-bold" id="novTotalSpent">0</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="pt-3-half font-weight-bold text-right">December</td>
+                                                    <td class="pt-3-half" id="decHousingBdgt">0</td>
+                                                    <td class="pt-3-half" id="decUtilitiesBdgt">0</td>
+                                                    <td class="pt-3-half" id="decTransportationBdgt">0</td>
+                                                    <td class="pt-3-half" id="decFoodBdgt">0</td>
+                                                    <td class="pt-3-half" id="decShoppingBdgt">0</td>
+                                                    <td class="pt-3-half" id="decLeisureBdgt">0</td>
+                                                    <td class="pt-3-half" id="decMiscBdgt">0</td>
+                                                    <td class="pt-3-half font-weight-bold" id="decTotalSpent">0</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="pt-3-half font-weight-bold text-right">Annual</td>
+                                                    <td class="pt-3-half font-weight-bold" id="annualHousingBdgt">0</td>
+                                                    <td class="pt-3-half font-weight-bold" id="annualUtilitiesBdgt">0</td>
+                                                    <td class="pt-3-half font-weight-bold" id="annualTransportationBdgt">0</td>
+                                                    <td class="pt-3-half font-weight-bold" id="annualFoodBdgt">0</td>
+                                                    <td class="pt-3-half font-weight-bold" id="annualShoppingBdgt">0</td>
+                                                    <td class="pt-3-half font-weight-bold" id="annualLeisureBdgt">0</td>
+                                                    <td class="pt-3-half font-weight-bold" id="annualMiscBdgt">0</td>
+                                                    <td class="pt-3-half font-weight-bold" id="annualTotalSpent">0</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <!-- Editable table -->
-
-
-
-
-                <!-- Button to add expenses -->
-                <!-- <div class="row">
-                    <a href="/addexpenses"><i class="fas fa-plus plusBtn"></i></a>
-                </div> -->
-                <!-- News -->
             </div>
-
             <div class="card col-md-2" style="padding: 20px;">
                 <div class="card-header bg-light border">
                     <h4 class="text-center"><i class="far fa-newspaper"></i> News</h4>
