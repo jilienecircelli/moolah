@@ -100,14 +100,15 @@ $(document).ready(function () {
     var $augMiscBdgt = $("#augMiscBdgt");
     var $augTotalSpent = $("#augTotalSpent");
 
-    var $augHousingBdgt = $("#augHousingBdgt");
-    var $augUtilitiesBdgt = $("#augUtilitiesBdgt");
-    var $augTransportationBdgt = $("#augTransportationBdgt");
-    var $augFoodBdgt = $("#augFoodBdgt");
-    var $augShoppingBdgt = $("#augShoppingBdgt");
-    var $augLeisureBdgt = $("#augLeisureBdgt");
-    var $augMiscBdgt = $("#augMiscBdgt");
-    var $augTotalSpent = $("#augTotalSpent");
+    //September
+    var $sepHousingBdgt = $("#sepHousingBdgt");
+    var $sepUtilitiesBdgt = $("#sepUtilitiesBdgt");
+    var $sepTransportationBdgt = $("#sepTransportationBdgt");
+    var $sepFoodBdgt = $("#sepFoodBdgt");
+    var $sepShoppingBdgt = $("#sepShoppingBdgt");
+    var $sepLeisureBdgt = $("#sepLeisureBdgt");
+    var $sepMiscBdgt = $("#sepMiscBdgt");
+    var $sepTotalSpent = $("#sepTotalSpent");
 
     $addBudgetBtn.on("click", function () {
 
