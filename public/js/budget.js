@@ -61,15 +61,24 @@ $(document).ready(function () {
     var $aprTotalSpent = $("#aprTotalSpent");
 
     //May
-    //April
     var $mayHousingBdgt = $("#mayHousingBdgt");
-    var $aprUtilitiesBdgt = $("#aprUtilitiesBdgt");
-    var $aprTransportationBdgt = $("#aprTransportationBdgt");
-    var $aprFoodBdgt = $("#aprFoodBdgt");
-    var $aprShoppingBdgt = $("#aprShoppingBdgt");
-    var $aprLeisureBdgt = $("#aprLeisureBdgt");
-    var $aprMiscBdgt = $("#aprMiscBdgt");
-    var $aprTotalSpent = $("#aprTotalSpent");
+    var $mayUtilitiesBdgt = $("#mayUtilitiesBdgt");
+    var $mayTransportationBdgt = $("#mayTransportationBdgt");
+    var $mayFoodBdgt = $("#mayFoodBdgt");
+    var $mayShoppingBdgt = $("#mayShoppingBdgt");
+    var $mayLeisureBdgt = $("#mayLeisureBdgt");
+    var $mayMiscBdgt = $("#mayMiscBdgt");
+    var $mayTotalSpent = $("#mayTotalSpent");
+
+    //June
+    var $junHousingBdgt = $("#junHousingBdgt");
+    var $junUtilitiesBdgt = $("#junUtilitiesBdgt");
+    var $junTransportationBdgt = $("#junTransportationBdgt");
+    var $junFoodBdgt = $("#junFoodBdgt");
+    var $junShoppingBdgt = $("#junShoppingBdgt");
+    var $junLeisureBdgt = $("#junLeisureBdgt");
+    var $junMiscBdgt = $("#junMiscBdgt");
+    var $junTotalSpent = $("#junTotalSpent");
 
     $addBudgetBtn.on("click", function () {
 
