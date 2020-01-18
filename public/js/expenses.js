@@ -31,3 +31,19 @@ function submitExpense(expense) {
 function renderExpenses() {
     //render expense to table
 }
+
+// for creating table elements: 
+{/* <td class="pt-3-half" id="expense-category">
+</td>
+    <td class="pt-3-half" id="expense-name">
+    </td>
+    <td class="pt-3-half" id="expense-amount">
+    </td>
+    <td>
+        <span class="table-edit"><button type="button"
+            class="btn btn-secondary btn-rounded btn-sm my-0"><i
+                class="fa fa-pencil-alt"></i></button></span>
+        <span class="table-remove"><button type="button"
+            class="btn btn-secondary btn-rounded btn-sm my-0"><i
+                class="fas fa-trash"></i></button></span>
+    </td> */}
