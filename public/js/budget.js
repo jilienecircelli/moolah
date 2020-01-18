@@ -110,6 +110,34 @@ $(document).ready(function () {
     var $sepMiscBdgt = $("#sepMiscBdgt");
     var $sepTotalSpent = $("#sepTotalSpent");
 
-    $addBudgetBtn.on("click", function () {
+    //October
+    var $octHousingBdgt = $("#octHousingBdgt");
+    var $octUtilitiesBdgt = $("#octUtilitiesBdgt");
+    var $octTransportationBdgt = $("#octTransportationBdgt");
+    var $octFoodBdgt = $("#octFoodBdgt");
+    var $octShoppingBdgt = $("#octShoppingBdgt");
+    var $octLeisureBdgt = $("#octLeisureBdgt");
+    var $octMiscBdgt = $("#octMiscBdgt");
+    var $octTotalSpent = $("#octTotalSpent");
 
-    })
+    //November
+    var $novHousingBdgt = $("#novHousingBdgt");
+    var $novUtilitiesBdgt = $("#novUtilitiesBdgt");
+    var $novTransportationBdgt = $("#novTransportationBdgt");
+    var $novFoodBdgt = $("#novFoodBdgt");
+    var $novShoppingBdgt = $("#novShoppingBdgt");
+    var $novLeisureBdgt = $("#novLeisureBdgt");
+    var $novMiscBdgt = $("#novMiscBdgt");
+    var $novTotalSpent = $("#novTotalSpent");
+
+    //December
+    var $decHousingBdgt = $("#decHousingBdgt");
+    var $decUtilitiesBdgt = $("#decUtilitiesBdgt");
+    var $decTransportationBdgt = $("#decTransportationBdgt");
+    var $decFoodBdgt = $("#decFoodBdgt");
+    var $decShoppingBdgt = $("#decShoppingBdgt");
+    var $decLeisureBdgt = $("#decLeisureBdgt");
+    var $decMiscBdgt = $("#decMiscBdgt");
+    var $decTotalSpent = $("#decTotalSpent");
+
+    $addBudgetBtn.on("click", function () {})
