@@ -94,6 +94,7 @@ $(document).ready(function() {
                     data.push(h);
                 });
 
-                // Output the result
-                $EXPORT.text(JSON.stringify(data));
-            });
+        // Output the result
+        $EXPORT.text(JSON.stringify(data));
+       
+    });
