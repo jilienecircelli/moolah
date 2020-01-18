@@ -1,100 +1,143 @@
-$(document).ready(function() {
-            $.get("/api/user_data").then(function(user) {
-                $(".user-name").text(user.firstName);
-            });
-
-            // $('.dropdown-toggle').dropdown()
-            //     //we need to display the persons current expenses and the news in a card to the right
-            //     // AJAX call for API
-            // var queryURL = "";
-
-            // $.ajax({
-            //     url: queryURL,
-            //     method: "GET"
-            // }).then(function(response) {
-
-            // })
-            // Update Budget Table //
-            const $addBudgetBtn = $("#submitBudget");
-            const $categoryChoice = $("#categoryChoice");
-            const $budgetAmount = $("#budgetAmount")
-
-            $addBudgetBtn.on("click", function() {
-
-            })
-
-
-
-            // Budget Table
-
-            const $tableID = $('#table');
-            const $BTN = $('#export-btn');
-            const $EXPORT = $('#export');
-
-            const newTr = `
-<tr class="hide">
-  <td class="pt-3-half" contenteditable="true">Example</td>
-  <td class="pt-3-half" contenteditable="true">Example</td>
-  <td class="pt-3-half" contenteditable="true">Example</td>
-  <td class="pt-3-half" contenteditable="true">Example</td>
-  <td class="pt-3-half" contenteditable="true">Example</td>
-  <td class="pt-3-half">
-    <span class="table-up"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-up" aria-hidden="true"></i></a></span>
-    <span class="table-down"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-down" aria-hidden="true"></i></a></span>
-  </td>
-  <td>
-    <span class="table-remove"><button type="button" class="btn btn-danger btn-rounded btn-sm my-0 waves-effect waves-light">Remove</button></span>
-  </td>
-</tr>`;
-            // Sort feature - if we use it...
-            $tableID.on('click', '.table-up', function() {
-
-                const $row = $(this).parents('tr');
-
-                if ($row.index() === 1) {
-                    return;
-                }
-
-                $row.prev().before($row.get(0));
-            });
-
-            $tableID.on('click', '.table-down', function() {
-
-                const $row = $(this).parents('tr');
-                $row.next().after($row.get(0));
-            });
-
-            // A few jQuery helpers for exporting only
-            jQuery.fn.pop = [].pop;
-            jQuery.fn.shift = [].shift;
-
-            $BTN.on('click', () => {
-
-                const $rows = $tableID.find('tr:not(:hidden)');
-                const headers = [];
-                const data = [];
-
-                // Get the headers (add special header logic here)
-                $($rows.shift()).find('th:not(:empty)').each(function() {
-
-                    headers.push($(this).text().toLowerCase());
-                });
-
-                // Turn all existing rows into a loopable array
-                $rows.each(function() {
-                    const $td = $(this).find('td');
-                    const h = {};
-
-                    // Use the headers from earlier to name our hash keys
-                    headers.forEach((header, i) => {
-
-                        h[header] = $td.eq(i).text();
-                    });
-
-                    data.push(h);
-                });
-
-        // Output the result
-        $EXPORT.text(JSON.stringify(data));
-       
+$(document).ready(function () {
+    $.get("/api/user_data").then(function (user) {
+        $(".user-name").text(user.firstName);
     });
+
+    // $('.dropdown-toggle').dropdown()
+    //     //we need to display the persons current expenses and the news in a card to the right
+    //     // AJAX call for API
+    // var queryURL = "";
+
+    // $.ajax({
+    //     url: queryURL,
+    //     method: "GET"
+    // }).then(function(response) {
+
+    // })
+    // Update Budget Table //
+
+    const $addBudgetBtn = $("#submitBudget");
+    const $categoryChoice = $("#categoryChoice");
+    const $budgetAmount = $("#budgetAmount");
+
+    //January 
+    var $janHousingBdgt = $("#janHousingBdgt");
+    var $janUtilitiesBdgt = $("#janUtilitiesBdgt");
+    var $janTransportationBdgt = $("#janTransportationBdgt");
+    var $janFoodBdgt = $("#janFoodBdgt");
+    var $janShoppingBdgt = $("#janShoppingBdgt");
+    var $janLeisureBdgt = $("#janLeisureBdgt");
+    var $janMiscBdgt = $("#janMiscBdgt");
+    var $janTotalSpent = $("#janTotalSpent");
+
+    //February
+    var $febHousingBdgt = $("#febHousingBdgt");
+    var $febUtilitiesBdgt = $("#febUtilitiesBdgt");
+    var $febTransportationBdgt = $("#febTransportationBdgt");
+    var $febFoodBdgt = $("#febFoodBdgt");
+    var $febShoppingBdgt = $("#febShoppingBdgt");
+    var $febLeisureBdgt = $("#febLeisureBdgt");
+    var $febMiscBdgt = $("#febMiscBdgt");
+    var $febTotalSpent = $("#febTotalSpent");
+
+    //March
+    var $marHousingBdgt = $("#marHousingBdgt");
+    var $marUtilitiesBdgt = $("#marUtilitiesBdgt");
+    var $marTransportationBdgt = $("#marTransportationBdgt");
+    var $marFoodBdgt = $("#marFoodBdgt");
+    var $marShoppingBdgt = $("#marShoppingBdgt");
+    var $marLeisureBdgt = $("#marLeisureBdgt");
+    var $marMiscBdgt = $("#marMiscBdgt");
+    var $marTotalSpent = $("#marTotalSpent");
+
+    //April
+    var $aprHousingBdgt = $("#aprHousingBdgt");
+    var $aprUtilitiesBdgt = $("#aprUtilitiesBdgt");
+    var $aprTransportationBdgt = $("#aprTransportationBdgt");
+    var $aprFoodBdgt = $("#aprFoodBdgt");
+    var $aprShoppingBdgt = $("#aprShoppingBdgt");
+    var $aprLeisureBdgt = $("#aprLeisureBdgt");
+    var $aprMiscBdgt = $("#aprMiscBdgt");
+    var $aprTotalSpent = $("#aprTotalSpent");
+
+    //May
+    var $mayHousingBdgt = $("#mayHousingBdgt");
+    var $mayUtilitiesBdgt = $("#mayUtilitiesBdgt");
+    var $mayTransportationBdgt = $("#mayTransportationBdgt");
+    var $mayFoodBdgt = $("#mayFoodBdgt");
+    var $mayShoppingBdgt = $("#mayShoppingBdgt");
+    var $mayLeisureBdgt = $("#mayLeisureBdgt");
+    var $mayMiscBdgt = $("#mayMiscBdgt");
+    var $mayTotalSpent = $("#mayTotalSpent");
+
+    //June
+    var $junHousingBdgt = $("#junHousingBdgt");
+    var $junUtilitiesBdgt = $("#junUtilitiesBdgt");
+    var $junTransportationBdgt = $("#junTransportationBdgt");
+    var $junFoodBdgt = $("#junFoodBdgt");
+    var $junShoppingBdgt = $("#junShoppingBdgt");
+    var $junLeisureBdgt = $("#junLeisureBdgt");
+    var $junMiscBdgt = $("#junMiscBdgt");
+    var $junTotalSpent = $("#junTotalSpent");
+
+    //July 
+    var $julHousingBdgt = $("#julHousingBdgt");
+    var $julUtilitiesBdgt = $("#julUtilitiesBdgt");
+    var $julTransportationBdgt = $("#julTransportationBdgt");
+    var $julFoodBdgt = $("#julFoodBdgt");
+    var $julShoppingBdgt = $("#julShoppingBdgt");
+    var $julLeisureBdgt = $("#julLeisureBdgt");
+    var $julMiscBdgt = $("#julMiscBdgt");
+    var $julTotalSpent = $("#julTotalSpent");
+
+    //August
+    var $augHousingBdgt = $("#augHousingBdgt");
+    var $augUtilitiesBdgt = $("#augUtilitiesBdgt");
+    var $augTransportationBdgt = $("#augTransportationBdgt");
+    var $augFoodBdgt = $("#augFoodBdgt");
+    var $augShoppingBdgt = $("#augShoppingBdgt");
+    var $augLeisureBdgt = $("#augLeisureBdgt");
+    var $augMiscBdgt = $("#augMiscBdgt");
+    var $augTotalSpent = $("#augTotalSpent");
+
+    //September
+    var $sepHousingBdgt = $("#sepHousingBdgt");
+    var $sepUtilitiesBdgt = $("#sepUtilitiesBdgt");
+    var $sepTransportationBdgt = $("#sepTransportationBdgt");
+    var $sepFoodBdgt = $("#sepFoodBdgt");
+    var $sepShoppingBdgt = $("#sepShoppingBdgt");
+    var $sepLeisureBdgt = $("#sepLeisureBdgt");
+    var $sepMiscBdgt = $("#sepMiscBdgt");
+    var $sepTotalSpent = $("#sepTotalSpent");
+
+    //October
+    var $octHousingBdgt = $("#octHousingBdgt");
+    var $octUtilitiesBdgt = $("#octUtilitiesBdgt");
+    var $octTransportationBdgt = $("#octTransportationBdgt");
+    var $octFoodBdgt = $("#octFoodBdgt");
+    var $octShoppingBdgt = $("#octShoppingBdgt");
+    var $octLeisureBdgt = $("#octLeisureBdgt");
+    var $octMiscBdgt = $("#octMiscBdgt");
+    var $octTotalSpent = $("#octTotalSpent");
+
+    //November
+    var $novHousingBdgt = $("#novHousingBdgt");
+    var $novUtilitiesBdgt = $("#novUtilitiesBdgt");
+    var $novTransportationBdgt = $("#novTransportationBdgt");
+    var $novFoodBdgt = $("#novFoodBdgt");
+    var $novShoppingBdgt = $("#novShoppingBdgt");
+    var $novLeisureBdgt = $("#novLeisureBdgt");
+    var $novMiscBdgt = $("#novMiscBdgt");
+    var $novTotalSpent = $("#novTotalSpent");
+
+    //December
+    var $decHousingBdgt = $("#decHousingBdgt");
+    var $decUtilitiesBdgt = $("#decUtilitiesBdgt");
+    var $decTransportationBdgt = $("#decTransportationBdgt");
+    var $decFoodBdgt = $("#decFoodBdgt");
+    var $decShoppingBdgt = $("#decShoppingBdgt");
+    var $decLeisureBdgt = $("#decLeisureBdgt");
+    var $decMiscBdgt = $("#decMiscBdgt");
+    var $decTotalSpent = $("#decTotalSpent");
+
+    $addBudgetBtn.on("click", function () {})
