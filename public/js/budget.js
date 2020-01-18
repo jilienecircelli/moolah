@@ -94,6 +94,13 @@ $(document).ready(function() {
                     data.push(h);
                 });
 
+<<<<<<< HEAD
                 // Output the result
                 $EXPORT.text(JSON.stringify(data));
             });
+=======
+        // Output the result
+        $EXPORT.text(JSON.stringify(data));
+       
+    });
+>>>>>>> 05493fdff5a50d84baa23e828aaf9e53a0527305
