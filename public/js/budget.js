@@ -80,6 +80,35 @@ $(document).ready(function () {
     var $junMiscBdgt = $("#junMiscBdgt");
     var $junTotalSpent = $("#junTotalSpent");
 
+    //July 
+    var $julHousingBdgt = $("#julHousingBdgt");
+    var $julUtilitiesBdgt = $("#julUtilitiesBdgt");
+    var $julTransportationBdgt = $("#julTransportationBdgt");
+    var $julFoodBdgt = $("#julFoodBdgt");
+    var $julShoppingBdgt = $("#julShoppingBdgt");
+    var $julLeisureBdgt = $("#julLeisureBdgt");
+    var $julMiscBdgt = $("#julMiscBdgt");
+    var $julTotalSpent = $("#julTotalSpent");
+
+    //August
+    var $augHousingBdgt = $("#augHousingBdgt");
+    var $augUtilitiesBdgt = $("#augUtilitiesBdgt");
+    var $augTransportationBdgt = $("#augTransportationBdgt");
+    var $augFoodBdgt = $("#augFoodBdgt");
+    var $augShoppingBdgt = $("#augShoppingBdgt");
+    var $augLeisureBdgt = $("#augLeisureBdgt");
+    var $augMiscBdgt = $("#augMiscBdgt");
+    var $augTotalSpent = $("#augTotalSpent");
+
+    var $augHousingBdgt = $("#augHousingBdgt");
+    var $augUtilitiesBdgt = $("#augUtilitiesBdgt");
+    var $augTransportationBdgt = $("#augTransportationBdgt");
+    var $augFoodBdgt = $("#augFoodBdgt");
+    var $augShoppingBdgt = $("#augShoppingBdgt");
+    var $augLeisureBdgt = $("#augLeisureBdgt");
+    var $augMiscBdgt = $("#augMiscBdgt");
+    var $augTotalSpent = $("#augTotalSpent");
+
     $addBudgetBtn.on("click", function () {
 
     })
