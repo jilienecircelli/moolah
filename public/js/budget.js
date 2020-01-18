@@ -20,10 +20,48 @@ $(document).ready(function() {
             const $budgetAmount = $("#budgetAmount")
 
             $addBudgetBtn.on("click", function() {
-
+                var budgetCategory = $("#categoryChoice").val();
+                var budgetAmount = $("#budgetAmount").val();
+                $.post("url", data,
+                    function(data, textStatus, jqXHR) {
+                        category: budgetCategory,
+                        amount: budgetAmount
+                    },
+                    "dataType"
+                );
             })
 
+            // For creating a budget
+            function createBudget(id) {
+                $.ajax({
+                        method: "POST",
+                        url: "/api/budget/" + id
+                    })
+                    .then(function() {
 
+                    });
+            }
+
+            // For updating budgets
+            function updateBudget(id) {
+                $.ajax({
+                        method: "PUT",
+                        url: "/api/budget/" + id
+                    })
+                    .then(function() {
+                        getBudget();
+                    });
+            }
+            // For getting all budgets
+            function getBudget(id) {
+                $.ajax({
+                        method: "GET",
+                        url: "/api/budget/" + id
+                    })
+                    .then(function() {
+
+                    });
+            }
 
             // Budget Table
 
