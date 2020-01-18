@@ -1,4 +1,3 @@
-var userIdPassport = 1;
 var saveExpenseBtn = $("#save-expense");
 var expenseNameInput = $("#expense-name");
 var expenseAmountInput = $("#expense-amount");
@@ -6,8 +5,14 @@ var expenseMonthSelect = $("#expense-month");
 var expenseCategorySelect = $("#expense-category");
 var editExpenseBtn = $("#table-edit");
 var deleteExpenseBtn = $("#table-delete");
-var expenseTableElement = $("#table-body")
+var expenseTableElement = $("#table-body");
+var userID =[];
 
+
+$.get("/api/user_data").then(function(user) {
+    userID.push(user.id)
+    console.log("USER ID: " + userID)
+});
 
 getExpenses();
 
@@ -27,7 +32,7 @@ $(saveExpenseBtn).on("click", function handleSubmit(e) {
         expenseName: expenseNameInput.val(),
         amount: expenseAmountInput.val(),
         month: expenseMonthSelect.val(),
-        userID: userIdPassport,
+        userID: userID,
     };
 
     console.log(newExpense);
@@ -35,7 +40,18 @@ $(saveExpenseBtn).on("click", function handleSubmit(e) {
     submitExpense(newExpense);
 });
 
-
+function getExpenses() {
+    var queryURL ="/api/expenses/user/" + userID
+    $.get(queryURL, function(data) {
+        console.log("Get expenses: " + data)
+        
+    //   var rowsToAdd = [];
+    //   for (var i = 0; i < data.length; i++) {
+    //     rowsToAdd.push(createExpenseRow(data[i]));
+    //   }
+    //   renderExpenses(rowsToAdd);
+    });
+  }
 
 function submitExpense(expense) {
     $.ajax({
@@ -98,7 +114,7 @@ function getExpenseData(id) {
         if (data) {
             expenseNameInput.val(data.expenseName);
             bodyInput.val(data.body);
-            postCategorySelect.val(data.category);
+            expenseCategorySelect.val(data.category);
         }
     });
 }
