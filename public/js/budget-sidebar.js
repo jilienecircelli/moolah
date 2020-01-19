@@ -10,13 +10,13 @@ $.ajax({
         // Transfer content to HTML
         for (var i = 0; i < 5; i++) {
             var article = response.articles[i];
-            console.log(article)
+            // console.log(article)
             var title = article.title;
             var url = article.url;
             var img = article.urlToImage;
             var description = article.description;
 
-            console.log("title is: ", title);
+            // console.log("title is: ", title);
 
             var $articleTitle = $(`<h8> ${title}</h8> <br>`);
             $articleTitle.addClass("card-title");

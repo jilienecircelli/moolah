@@ -1,44 +1,110 @@
 $(document).ready(function() {
+    renderBudget();
     $.get("/api/user_data").then(function(user) {
         $(".user-name").text(user.firstName);
     });
 
-    // $('.dropdown-toggle').dropdown()
-    //     //we need to display the persons current expenses and the news in a card to the right
-    //     // AJAX call for API
-    // var queryURL = "";
+    var userID;
+    $.get("/api/user_data").then(function(user) {
+        userID = user.id;
+    });
 
-    // $.ajax({
-    //     url: queryURL,
-    //     method: "GET"
-    // }).then(function(response) {
+    console.log("USER ID: " + userID);
 
-    // })
     // Update Budget Table //
     var saveBudgetBtn = $("#save-budget");
     var budgetMonthSelect = $("#budget-month");
     var budgetCategorySelect = $("#budget-category");
     var expenseAmtInput = $("#expense-amount");
 
-
-    saveBudgetBtn.on("click", function submitNewBudget(e) {
+    saveBudgetBtn.on("click", function handleSubmit(e) {
         e.preventDefault();
-        console.log("Budget Month: " + budgetMonthSelect.val());
-        console.log("Budget Category: " + budgetCategorySelect.val());
-        console.log("Budget Expense: " + expenseAmtInput.val());
+
+        $.get("/api/user_data")
+            .then(function(user) {
+                // var userID = user.id;
+
+                console.log("Budget Month: " + budgetMonthSelect.val());
+                console.log("Budget Category: " + budgetCategorySelect.val());
+                console.log("Budget Expense: " + expenseAmtInput.val());
+
+                var newBudget = {
+                    category: budgetCategorySelect.val(),
+                    amount: expenseAmtInput.val(),
+                    month: budgetMonthSelect.val(),
+                    userID: 1
+                };
+                submitNewBudget(newBudget);
+            });
     });
 
 
-    // For creating a budget
-    function createBudget(id) {
+    function submitNewBudget(budget) {
         $.ajax({
                 method: "POST",
-                url: "/api/budget/" + id
+                url: "/api/budget/",
+                data: budget
             })
             .then(function() {
-
+                console.log("this is the new budget " + budget);
+                renderBudget();
             });
     }
+
+    function getMonthData(month) {
+        $.ajax({
+            method: "GET",
+            url: "/api/budget/" + month,
+        }).then(function(response) {
+            for (var i = 0; i < response.length; i++) {
+                if (response[i].category === "Housing") {
+                    janHousingBdgt.replaceWith(response.amount)
+                }
+            }
+        })
+    }
+
+
+    function renderBudget() {
+        $.ajax({
+            method: "GET",
+            url: "/api/budget/"
+        }).then(function(budget) {
+            console.log("GET RESPONSE: ", budget);
+            for (var i = 0; i < budget.length; i++) {
+                var januaryItems = [];
+                if (budget[i].month === "January") {
+                    var budgetMonth = budget[i].month
+                    getMonthData(budgetMonth)
+
+                }
+                //sortCategory(januaryItems)
+
+            }
+
+            console.log("** January Items **", januaryItems)
+
+
+            ///////////
+            //     for (var i = 0; i < budget.length; i++) {
+            //         if (budget[i].month === "January") {
+            //             console.log("JANUARY: ", budget[i]);
+            //             if (budget[i].category === "Housing") {
+            //                 janHousingBdgt.replaceWith(budget[i].amount);
+            //             } else if (budget[i].category === "Utilities") {
+            //                 janUtilitiesBdgt.replaceWith(budget[i].amount);
+            //             }
+            //         } else {}
+            //     }
+        });
+    }
+
+    function sortCategory(month) {
+        var housing = month.filter(key => key.includes("Housing"))
+        console.log("HOUSING: ", housing)
+    }
+
+
 
     // For updating budgets
     function updateBudget(id) {
@@ -50,32 +116,20 @@ $(document).ready(function() {
                 getBudget();
             });
     }
-    // For getting all budgets
-    function getBudget(id) {
-        $.ajax({
-                method: "GET",
-                url: "/api/budget/" + id
-            })
-            .then(function() {
 
-            });
-    }
 
 });
 
-const $addBudgetBtn = $("#submitBudget");
-const $categoryChoice = $("#categoryChoice");
-const $budgetAmount = $("#budgetAmount");
 
 //January 
-var $janHousingBdgt = $("#janHousingBdgt");
-var $janUtilitiesBdgt = $("#janUtilitiesBdgt");
-var $janTransportationBdgt = $("#janTransportationBdgt");
-var $janFoodBdgt = $("#janFoodBdgt");
-var $janShoppingBdgt = $("#janShoppingBdgt");
-var $janLeisureBdgt = $("#janLeisureBdgt");
-var $janMiscBdgt = $("#janMiscBdgt");
-var $janTotalSpent = $("#janTotalSpent");
+var janHousingBdgt = $("#janHousingBdgt");
+var janUtilitiesBdgt = $("#janUtilitiesBdgt");
+var janTransportationBdgt = $("#janTransportationBdgt");
+var janFoodBdgt = $("#janFoodBdgt");
+var janShoppingBdgt = $("#janShoppingBdgt");
+var janLeisureBdgt = $("#janLeisureBdgt");
+var janMiscBdgt = $("#janMiscBdgt");
+var janTotalSpent = $("#janTotalSpent");
 
 //February
 var $febHousingBdgt = $("#febHousingBdgt");
@@ -186,5 +240,3 @@ var $decShoppingBdgt = $("#decShoppingBdgt");
 var $decLeisureBdgt = $("#decLeisureBdgt");
 var $decMiscBdgt = $("#decMiscBdgt");
 var $decTotalSpent = $("#decTotalSpent");
-
-$addBudgetBtn.on("click", function() {})
