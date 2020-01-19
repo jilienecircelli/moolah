@@ -44,7 +44,7 @@ $(saveExpenseBtn).on("click", function handleSubmit(e) {
             console.log(userID);
 
             submitExpense(newExpense);
-            getExpenses(userID);
+            renderNewRow(newExpense);
         });
 });
 
@@ -66,70 +66,81 @@ function getExpenses(id) {
     $.get("/api/expenses/user/" + id, function (data) {
         userExpenses = data;
         console.log(JSON.stringify(data))
-        createExpenseRow()
+        renderExpenseRows()
     });
 }
 
 
+$("#filterMonth").on("click", "li", function handleFilter(e) {
+    e.preventDefault();
+    var clickedFilter = $(this).text();
+    console.log(clickedFilter)
+
+    $.get("/api/user_data")
+        .then(function (user) {
+            var userID = user.id;
+
+            switch(clickedFilter){
+                case "All Expenses":
+                    $.get("/api/expenses/user/" + id, function (data) {
+                        userExpenses = data;
+                        console.log(JSON.stringify(data));
+                        renderExpenseRows();
+                    });
+                    break;
+                default:
+                    $.get("/api/expenses/month/" + userID + "/" + clickedFilter, function (response) {
+                    expenseTableElement.empty();
+                    userExpenses = response;
+                    renderExpenseRows();
+                });
+            }
+        });
 
 
+});
 
 
-// {/* <td class="pt-3-half" id="expense-category">
-// </td>
-//     <td class="pt-3-half" id="expense-name">
-//     </td>
-//     <td class="pt-3-half" id="expense-amount">
-//     </td>
-//     <td>
-//         <span class="table-edit"><button type="button"
-//             class="btn btn-secondary btn-rounded btn-sm my-0"><i
-//                 class="fa fa-pencil-alt"></i></button></span>
-//         <span class="table-remove"><button type="button"
-//             class="btn btn-secondary btn-rounded btn-sm my-0"><i
-//                 class="fas fa-trash"></i></button></span>
-//     </td> */}
-
-// function initializeRows(userExpenses) {
-//     expenseTableElement.empty();
-//     var expensesToAdd = [];
-//     for (var i = 0; i < userExpenses.length; i++) {
-//         expensesToAdd.push(createExpenseRow(userExpenses[i]));
-//     }
-//     expenseTableElement.append(expensesToAdd);
-// }
-
-function createExpenseRow() {
-    userExpenses.forEach(function(expenseData){
+function renderExpenseRows() {
+    userExpenses.forEach(function (expenseData) {
         console.log("CreatExpenseRow" + JSON.stringify(expenseData));
         var newTr = $("<tr>");
         // newTr.data("expense", expenseData);
+        newTr.append("<td class='pt-3-half' id='expense-month'>" + expenseData.month + "</td>");
         newTr.append("<td class='pt-3-half' id='expense-category'>" + expenseData.category + "</td>");
         newTr.append("<td class='pt-3-half' id='expense-name'>" + expenseData.expenseName + "</td>");
         newTr.append("<td class='pt-3-half' id='expense-name'>" + expenseData.amount + "</td>");
         newTr.append("<td> <span class='table-edit'><button type='button' class='btn btn-secondary btn-rounded btn-sm my-0'><i class='fa fa-pencil-alt'></i></button></span> <span class='table-remove'><button type='button' class='btn btn-secondary btn-rounded btn-sm my-0'><i class='fas fa-trash'></i></button></span></td>");
         expenseTableElement.append(newTr);
     });
-
-
 }
 
+function renderNewRow(expense) {
+        console.log("CreatExpenseRow" + JSON.stringify(expense));
+        var newTr = $("<tr>");
+        // newTr.data("expense", expenseData);
+        newTr.append("<td class='pt-3-half' id='expense-month'>" + expense.month + "</td>");
+        newTr.append("<td class='pt-3-half' id='expense-category'>" + expense.category + "</td>");
+        newTr.append("<td class='pt-3-half' id='expense-name'>" + expense.expenseName + "</td>");
+        newTr.append("<td class='pt-3-half' id='expense-name'>" + expense.amount + "</td>");
+        newTr.append("<td> <span class='table-edit'><button type='button' class='btn btn-secondary btn-rounded btn-sm my-0'><i class='fa fa-pencil-alt'></i></button></span> <span class='table-remove'><button type='button' class='btn btn-secondary btn-rounded btn-sm my-0'><i class='fas fa-trash'></i></button></span></td>");
+        var expenseID = expense.id;
+        newTr.attr("id", expenseID)
+        expenseTableElement.append(newTr);
+    }
 
 
 
-
-
-
-// function updateExpense(expense) {
-//     $.ajax({
-//         method: "PUT",
-//         url: "/api/expenses",
-//         data: expense
-//     })
-//         .then(function () {
-//             renderExpenses()
-//         });
-// }
+function updateExpense(expense) {
+    $.ajax({
+        method: "PUT",
+        url: "/api/expenses/"+ expense.id,
+        data: expense
+    })
+        .then(function () {
+            renderExpenses()
+        });
+}
 
 
 // function getExpenseData(id) {
@@ -142,15 +153,21 @@ function createExpenseRow() {
 //     });
 // }
 
-// function deleteExpenseData(id) {
-//     $.ajax({
-//         method: "DELETE",
-//         url: "/api/expenses/" + id
-//     })
-//         .then(function () {
-//             //what do we do with the data? 
-//         });
-// }
+$(deleteExpenseBtn).on("click", function handleDelete(e){
+    e.preventDefault();
+
+
+})
+
+function deleteExpenseData(id) {
+    $.ajax({
+        method: "DELETE",
+        url: "/api/expenses/" + id
+    })
+        .then(function () {
+            //what do we do with the data?
+        });
+}
 
 
 // function renderExpenses(expense) {
