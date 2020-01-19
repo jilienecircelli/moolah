@@ -7,11 +7,12 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/api/expenses/month/:month", function(req, res) {
+  app.get("/api/expenses/month/:id/:month", function(req, res) {
     db.Expenses.findAll({
         where: {
-            month: req.params.month
-          }
+          userID: req.params.id,
+          month: req.params.month
+          },
     }).then(function(dbExpenses) {
       res.json(dbExpenses);
     });
@@ -53,12 +54,12 @@ module.exports = function(app) {
     });
   });
 
-  app.put("/api/expenses", function(req, res) {
+  app.put("/api/expenses/:id", function(req, res) {
     db.Expenses.update(
       req.body,
       {
       where: {
-        id: req.body.id
+        id: req.params.id
       }
     }).then(function(dbExpenses) {
       res.json(dbExpenses);
