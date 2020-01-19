@@ -7,7 +7,7 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/api/expenses/:month", function(req, res) {
+  app.get("/api/expenses/month/:month", function(req, res) {
     db.Expenses.findAll({
         where: {
             month: req.params.month
@@ -17,10 +17,20 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/api/expenses/:category", function(req, res) {
+  app.get("/api/expenses/category/:category", function(req, res) {
     db.Expenses.findAll({
         where: {
             category: req.params.category
+          }
+    }).then(function(dbExpenses) {
+      res.json(dbExpenses);
+    });
+  });
+
+  app.get("/api/expenses/user/:id", function(req, res) {
+    db.Expenses.findAll({
+        where: {
+            userID: parseInt(req.params.id)
           }
     }).then(function(dbExpenses) {
       res.json(dbExpenses);
