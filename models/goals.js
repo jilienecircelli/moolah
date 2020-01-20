@@ -7,14 +7,16 @@ module.exports = function (sequelize, DataTypes) {
         goalName: {
             type: DataTypes.STRING,
             allowNull: false,
+
         },
         monthlyContribution: {
             type: DataTypes.DECIMAL(13, 2),
             allowNull: false,
+
         },
         description: {
             type: DataTypes.TEXT,
-            allowNull: true,
+            allowNull: false,
         },
         amount: {
             type: DataTypes.DECIMAL(13, 2),

@@ -1,35 +1,62 @@
 $(document).ready(function() {
     // Getting jQuery references to the post body, title, form, and author select
-    var goalSubmitBtn =$("#goal-submit")
+    var postCategorySelect = $("#goal-category");
+    var goalName = $("#goalName");
+    var goalMonthlyContribution = $("#goalMonthlyContribution");
     var goalDescription = $("#goalDescription");
     var goalAmount = $("#goalAmount");
-    var postCategorySelect = $("#category");
-    var goalForm = $("#goalForm")
+    var goalSubmitBtn = $("#goal-submit");
 
-    // Adding an event listener for when the form is submitted
-    $(goalSubmitBtn).on("click", function handleFormSubmit() {
-        event.preventDefault(); 
-        var newGoal = {
-            description: goalDescription.val().trim(),
-            amount: goalAmount.val().trim(),
-            category: postCategorySelect.val()
-        };
-    
-        console.log(newGoal);
+    function getGoals(id) {
+        $.get("/api/goals-sidebar/user" + id, function(data) {
+            userGoals = data;
+            console.log(JSON.stringify(data));
+    });
+    }
 
-        submitGoal(newGoal);
+    //get goals data for the user when loading the page
+    $.get("/api/user_data")
+    .then(function(user) {
+    userID = user.id;
+    console.log("user id " + userID);
+    getGoals(userID);
     });
 
-    function submitGoal(goal) {
+    function submitGoal(newGoal) {
         $.ajax({
-          method: "POST",
-          url: "/api/goals/",
-          data: goal
+            method: "POST",
+            url: "/api/goals/",
+            data: newGoal
         })
-          .then(function() {
-            console.log("this is the goal I am posting" + goal)
-      });
+        .then(function () {
+            console.log("this is the goal i am posting" + JSON.stringify(newGoal))
+        });
     }
+
+
+
+    // Adding an event listener for when the form is submitted
+    $(goalSubmitBtn).on("submit", function handleFormSubmit(event) {
+        event.preventDefault();
+
+        var newGoal = {
+            category: postCategorySelect.val(),
+            goalName: goalName.val(),
+            monthlyContribution: goalMonthlyContribution.val(),
+            description: goalDescription.val().trim(),
+            amount: goalAmount.val().trim(),
+            userID: user.id,
+        };
+        console.log(newGoal);
+        console.log("user id" + user.id);
+
+        submitGoal(newGoal);
+        getGoal(userID);
+        // getGoals(userID);
+    });
+
+
+
 });
 
 
