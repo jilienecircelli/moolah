@@ -11,26 +11,26 @@ $(document).ready(function() {
         $.get("/api/goals-sidebar/user" + id, function(data) {
             userGoals = data;
             console.log(JSON.stringify(data));
-    });
+        });
     }
 
     //get goals data for the user when loading the page
     $.get("/api/user_data")
-    .then(function(user) {
-    userID = user.id;
-    console.log("user id " + userID);
-    getGoals(userID);
-    });
+        .then(function(user) {
+            userID = user.id;
+            console.log("user id " + userID);
+            getGoals(userID);
+        });
 
     function submitGoal(newGoal) {
         $.ajax({
-            method: "POST",
-            url: "/api/goals/",
-            data: newGoal
-        })
-        .then(function () {
-            console.log("this is the goal i am posting" + JSON.stringify(newGoal))
-        });
+                method: "POST",
+                url: "/api/goals/",
+                data: newGoal
+            })
+            .then(function() {
+                console.log("this is the goal i am posting" + JSON.stringify(newGoal))
+            });
     }
 
 

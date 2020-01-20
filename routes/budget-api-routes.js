@@ -6,11 +6,21 @@ module.exports = function(app) {
             res.json(dbBudget);
         });
     });
-
-    app.get("/api/budget/:month", function(req, res) {
+    app.get("/api/budget/:month/", function(req, res) {
         db.Budget.findAll({
             where: {
-                month: req.params.month
+                month: req.params.month,
+            }
+        }).then(function(dbBudget) {
+            res.json(dbBudget);
+        });
+    });
+
+    app.get("/api/budget/:month/:category", function(req, res) {
+        db.Budget.findAll({
+            where: {
+                month: req.params.month,
+                category: req.params.category
             }
         }).then(function(dbBudget) {
             res.json(dbBudget);

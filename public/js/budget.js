@@ -1,17 +1,18 @@
+/* eslint-disable no-use-before-define */
 $(document).ready(function() {
-    renderBudget();
     $.get("/api/user_data").then(function(user) {
-        $(".user-name").text(user.firstName);
+        $(".user-name").text(user.firstName).attr("id", user.id);
     });
 
-    var userID;
-    $.get("/api/user_data").then(function(user) {
-        userID = user.id;
-    });
 
-    console.log("USER ID: " + userID);
+    // var userID;
+    // $.get("/api/user_data").then(function(user) {
+    //     userID = user.id;
+    // });
 
-    // Update Budget Table //
+    // console.log("USER ID: " + userID);
+
+    // Saving Budgets via on click //
     var saveBudgetBtn = $("#save-budget");
     var budgetMonthSelect = $("#budget-month");
     var budgetCategorySelect = $("#budget-category");
@@ -22,23 +23,22 @@ $(document).ready(function() {
 
         $.get("/api/user_data")
             .then(function(user) {
-                // var userID = user.id;
-
                 console.log("Budget Month: " + budgetMonthSelect.val());
                 console.log("Budget Category: " + budgetCategorySelect.val());
                 console.log("Budget Expense: " + expenseAmtInput.val());
+                console.log("User ID: " + user.id);
 
                 var newBudget = {
                     category: budgetCategorySelect.val(),
                     amount: expenseAmtInput.val(),
                     month: budgetMonthSelect.val(),
-                    userID: 1
+                    userID: user.id
                 };
                 submitNewBudget(newBudget);
             });
     });
 
-
+    // Submitting new budget to database
     function submitNewBudget(budget) {
         $.ajax({
                 method: "POST",
@@ -47,64 +47,42 @@ $(document).ready(function() {
             })
             .then(function() {
                 console.log("this is the new budget " + budget);
-                renderBudget();
+                renderBudget(budget);
             });
     }
 
-    function getMonthData(month) {
-        $.ajax({
-            method: "GET",
-            url: "/api/budget/" + month,
-        }).then(function(response) {
-            for (var i = 0; i < response.length; i++) {
-                if (response[i].category === "Housing") {
-                    janHousingBdgt.replaceWith(response.amount)
-                }
+    // Get Month & Category for looping through
+    function getMonthData(month, category) {
+        var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        var categories = ["Housing", "Utilities", "Transportation", "Food", "Shopping", "Leisure", "Miscellaneous"];
+        for (var i = 0; i < months.length; i++) {
+            for (var j = 0; j < categories.length; j++) {
+                $.ajax({
+                    method: "GET",
+                    url: "/api/budget/" + months[i] + "/" + categories[j],
+                }).then(function(response) {
+                    // console.log("GET MONTH DATA: ", response)
+                    renderBudget(response);
+                });
             }
-        })
+        }
+
     }
 
-
-    function renderBudget() {
-        $.ajax({
-            method: "GET",
-            url: "/api/budget/"
-        }).then(function(budget) {
-            console.log("GET RESPONSE: ", budget);
-            for (var i = 0; i < budget.length; i++) {
-                var januaryItems = [];
-                if (budget[i].month === "January") {
-                    var budgetMonth = budget[i].month
-                    getMonthData(budgetMonth)
-
-                }
-                //sortCategory(januaryItems)
+    function renderBudget(response) {
+        // console.log("Render Budget Response: ", response);
+        for (var i = 0; i < response.length; i++) {
+            if (response[i].month === "January" && response[i].category === "Housing") {
+                console.log("**** Response i : **** ", response[i].month, response[i].category, response[i].amount);
+                var janHousingBdgt = $("#janHousingBdgt");
+                janHousingBdgt.replaceWith(response[i].amount);
 
             }
+            // getMonthData(budgetMonth)
+            //sortCategory(januaryItems)
 
-            console.log("** January Items **", januaryItems)
-
-
-            ///////////
-            //     for (var i = 0; i < budget.length; i++) {
-            //         if (budget[i].month === "January") {
-            //             console.log("JANUARY: ", budget[i]);
-            //             if (budget[i].category === "Housing") {
-            //                 janHousingBdgt.replaceWith(budget[i].amount);
-            //             } else if (budget[i].category === "Utilities") {
-            //                 janUtilitiesBdgt.replaceWith(budget[i].amount);
-            //             }
-            //         } else {}
-            //     }
-        });
+        }
     }
-
-    function sortCategory(month) {
-        var housing = month.filter(key => key.includes("Housing"))
-        console.log("HOUSING: ", housing)
-    }
-
-
 
     // For updating budgets
     function updateBudget(id) {
@@ -117,12 +95,20 @@ $(document).ready(function() {
             });
     }
 
+    getMonthData();
 
 });
 
 
+// function sortCategory(month) {
+//     var housing = month.filter(key => key.includes("Housing"))
+//     console.log("HOUSING: ", housing)
+// }
+
+
+
 //January 
-var janHousingBdgt = $("#janHousingBdgt");
+
 var janUtilitiesBdgt = $("#janUtilitiesBdgt");
 var janTransportationBdgt = $("#janTransportationBdgt");
 var janFoodBdgt = $("#janFoodBdgt");
