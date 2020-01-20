@@ -90,13 +90,13 @@
 
     function submitGoal(newGoal) {
         $.ajax({
-            method: "POST",
-            url: "/api/goals/",
-            data: newGoal
-        })
-        .then(function () {
-            console.log("this is the goal i am posting" + JSON.stringify(newGoal))
-        });
+                method: "POST",
+                url: "/api/goals/",
+                data: newGoal
+            })
+            .then(function() {
+                console.log("this is the goal i am posting" + JSON.stringify(newGoal))
+            });
     }
 
 
