@@ -3,8 +3,9 @@ var expenseNameInput = $("#expense-name");
 var expenseAmountInput = $("#expense-amount");
 var expenseMonthSelect = $("#expense-month");
 var expenseCategorySelect = $("#expense-category");
-var editExpenseBtn = $("#table-edit");
-var deleteExpenseBtn = $("#table-delete");
+// var deleteTarget = $("#tableRowDelete")
+var removeBtn = $("#removeBtn");
+var expenseEdit = $(".edit");
 var expenseTableElement = $("#table-body");
 var userExpenses = [];
 
@@ -57,7 +58,7 @@ function submitExpense(expense) {
         data: expense
     })
         .then(function () {
-            console.log("this is the expense I am posting" + JSON.stringify(expense))
+            console.log("this is the expense I am posting" + JSON.stringify(expense));
         });
 }
 
@@ -69,6 +70,16 @@ function getExpenses(id) {
         renderExpenseRows()
     });
 }
+
+$("#allExpenses").on("click", function(){
+    $.get("/api/user_data")
+        .then(function (user) {
+            var userID = user.id;
+
+            getExpenses(userID);
+        });
+
+});
 
 
 $("#filterMonth").on("click", "li", function handleFilter(e) {
@@ -104,28 +115,28 @@ $("#filterMonth").on("click", "li", function handleFilter(e) {
 function renderExpenseRows() {
     userExpenses.forEach(function (expenseData) {
         console.log("CreatExpenseRow" + JSON.stringify(expenseData));
-        var newTr = $("<tr>");
+        var newTr = $('<tr id="'+ expenseData.id+'">');
         // newTr.data("expense", expenseData);
         newTr.append("<td class='pt-3-half' id='expense-month'>" + expenseData.month + "</td>");
         newTr.append("<td class='pt-3-half' id='expense-category'>" + expenseData.category + "</td>");
         newTr.append("<td class='pt-3-half' id='expense-name'>" + expenseData.expenseName + "</td>");
-        newTr.append("<td class='pt-3-half' id='expense-name'>" + expenseData.amount + "</td>");
+        newTr.append("<td class='pt-3-half' id='expense-amount'>" + expenseData.amount + "</td>");
         newTr.append("<td> <span class='table-edit'><button type='button' class='btn btn-secondary btn-rounded btn-sm my-0'><i class='fa fa-pencil-alt'></i></button></span> <span class='table-remove'><button type='button' class='btn btn-secondary btn-rounded btn-sm my-0'><i class='fas fa-trash'></i></button></span></td>");
+        // newTr.attr("data-id", expenseData.id);
         expenseTableElement.append(newTr);
     });
 }
 
 function renderNewRow(expense) {
         console.log("CreatExpenseRow" + JSON.stringify(expense));
-        var newTr = $("<tr>");
+        var newTr = $('<tr id="'+ expense.id +'">');
         // newTr.data("expense", expenseData);
-        newTr.append("<td class='pt-3-half' id='expense-month'>" + expense.month + "</td>");
-        newTr.append("<td class='pt-3-half' id='expense-category'>" + expense.category + "</td>");
-        newTr.append("<td class='pt-3-half' id='expense-name'>" + expense.expenseName + "</td>");
-        newTr.append("<td class='pt-3-half' id='expense-name'>" + expense.amount + "</td>");
+        newTr.append('<td class="pt-3-half">' + expense.month + '</td>');
+        newTr.append('<td class="pt-3-half">' + expense.category + '</td>');
+        newTr.append('<td class="pt-3-half">' + expense.expenseName + '</td>');
+        newTr.append('<td class="pt-3-half">' + expense.amount + '</td>');
         newTr.append("<td> <span class='table-edit'><button type='button' class='btn btn-secondary btn-rounded btn-sm my-0'><i class='fa fa-pencil-alt'></i></button></span> <span class='table-remove'><button type='button' class='btn btn-secondary btn-rounded btn-sm my-0'><i class='fas fa-trash'></i></button></span></td>");
-        var expenseID = expense.id;
-        newTr.attr("id", expenseID)
+        // newTr.attr("data-id", expense.id);
         expenseTableElement.append(newTr);
     }
 
@@ -138,7 +149,7 @@ function updateExpense(expense) {
         data: expense
     })
         .then(function () {
-            renderExpenses()
+            renderExpenseRows();
         });
 }
 
@@ -153,11 +164,19 @@ function updateExpense(expense) {
 //     });
 // }
 
-$(deleteExpenseBtn).on("click", function handleDelete(e){
+
+$("#removeBtn").on("click", "button", function handleFilter(e) {
     e.preventDefault();
+    var clickedExpense = $(this).id();
+    console.log("You clicked this Expense", clickedExpense)
+});
 
+// $(expenseDelete).on("click", function handleDelete(){
+//     var expenseID = this.id;
+//     console.log("DELETE EXPENSE ID", expenseID);
 
-})
+//     // deleteExpenseData(expenseID);
+// });
 
 function deleteExpenseData(id) {
     $.ajax({
@@ -165,13 +184,9 @@ function deleteExpenseData(id) {
         url: "/api/expenses/" + id
     })
         .then(function () {
-            //what do we do with the data?
+            alert("You have successfully deleted this expense");
+            window.location.href = "/addexpenses";
         });
 }
 
 
-// function renderExpenses(expense) {
-//     console.log(expense);
-// }
-
-// // for creating table elements: 
