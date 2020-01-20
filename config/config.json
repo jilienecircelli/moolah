@@ -1,7 +1,11 @@
 {
     "development": {
         "username": "root",
+<<<<<<< HEAD
         "password": "Minkyukr91!",
+=======
+        "password": "mysqlmysql",
+>>>>>>> d5f6a418182bd9a67044d64dce25c7a203b97ff7
         "database": "moolah_db",
         "host": "127.0.0.1",
         "dialect": "mysql"
