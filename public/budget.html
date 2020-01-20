@@ -48,13 +48,15 @@
         </div>
         <div class="row">
             <!-- Goalz -->
-
+            
             <div class="card col-md-2" style="padding: 20px;">
                 <div class="card-header bg-light border" style="padding-top: 10px;">
                     <h4 class="text-center"><i class="fas fa-coins" style="padding-top: 10px;"></i> Goalz</h4>
                 </div>
-                <div class="card-body col-12 goalz-col">
-                    <div class="form-group">
+
+                <div class="card-body col-12 goalCategory-col">
+    <!--***************** THIS PART NOT WORKING YET*********** -->
+                    <!-- <div class="form-group">
                         <select class="custom-select" id="category">
                             <option selected value="">All Categories</option>
                             <option value="Housing">Housing</option>
@@ -65,9 +67,10 @@
                             <option value="Leisure">Leisure</option>
                             <option value="Miscellaneous">Miscellaneous</option>
                         </select>
+                    </div> -->
+                    <div class="card col-12 goals-col">
                     </div>
-
-                    <div class="col-12 newGoalz-col">
+                    <div class="card-body col-12 newGoalz-col">
                         <button type="button" class="btn btn-light" data-toggle="modal" data-target="#goalModal">New
                             Goal</button>
                         <div class="modal fade" id="goalModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -116,7 +119,7 @@
                                             <input type="number" name="quantity" min="0" max="999999999999999999999999" class="md-textarea form-control" rows="1" id="goalAmount"></input>
                                             
                                             <div class="text-center mt-4 mb-2">
-                                                <button type="submit" class="btn btn-light submitGoal" id="goal-submit">Goal!<i class="fa fa-send ml-2"></i></button>
+                                                <button type="submit" class="btn btn-light submitGoal" id="submit-goal">Goal!<i class="fa fa-send ml-2"></i></button>
                                             </div>
                                         </div>
 
