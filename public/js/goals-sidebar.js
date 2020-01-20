@@ -25,8 +25,7 @@ function createNewRow(goal) {
     newGoalCategory.css({
         float: "right",
         "font-weight": "700",
-        "margin-top":
-            "-15px"
+        "margin-top": "-15px"
     });
     var newGoalCardBody = $("<div>");
     newGoalCardBody.addClass("card-body");
@@ -47,6 +46,7 @@ function createNewRow(goal) {
     newGoalCard.data("Goal", goal);
     return newGoalCard;
 }
+
 function initializeRows() {
     goalsContainer.empty();
     var goalsToAdd = [];
@@ -57,7 +57,7 @@ function initializeRows() {
 }
 // This function constructs a goals' HTML
 
-$(document).ready(function () {
+$(document).ready(function() {
     // blogContainer holds all of our posts
     var goalsContainer = $(".goalz-col");
     var goalCategorySelect = $("#category");
@@ -70,11 +70,11 @@ $(document).ready(function () {
         if (categoryString) {
             categoryString = "/category/" + categoryString;
         }
-        $.get("/api/goals" + categoryString, function (data) {
+        $.get("/api/goals" + categoryString, function(data) {
             console.log("Goals", data);
             goalss = data;
             if (!goals || !goals.length) {
-                displayEmpty();
+                //displayEmpty();
             } else {
                 initializeRows();
             }
