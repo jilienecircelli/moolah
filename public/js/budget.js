@@ -8,6 +8,7 @@ var budgetTableElement = $("#budget-table");
 var deleteBtn = $("#deleteBtn");
 var expenseEdit = $("#editBtn");
 
+
 $.get("/api/user_data").then(function(user) {
     $(".user-name").text(user.firstName).attr("id", user.id);
 
@@ -80,44 +81,7 @@ $.get("/api/user_data").then(function(user) {
         });
     }
 
-    getBudgets()
-        // // Get Month & Category for looping through
-        // function getMonthData(month, category) {
-        //     var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-        //     var categories = ["Housing", "Utilities", "Transportation", "Food", "Shopping", "Leisure", "Miscellaneous"];
-        //     for (var i = 0; i < months.length; i++) {
-        //         for (var j = 0; j < categories.length; j++) {
-        //             $.ajax({
-        //                 method: "GET",
-        //                 url: "/api/budget/" + months[i] + "/" + categories[j],
-        //             }).then(function(response) {
-        //                 // console.log("GET MONTH DATA: ", response)
-        //                 renderBudget(response);
-        //             });
-        //         }
-        //     }
 
-    // }
-
-    // function renderBudget(response) {
-    //     //console.log("Render Budget Response: ", response);
-    //     for (var i = 0; i < response.length; i++) {
-    //         if (response[i].month === "January") {
-    //             if (response[i].category === "Housing") {
-    //                 console.log("**** Response i : **** ", response[i].month, response[i].category, response[i].amount);
-    //                 var janHousingBdgt = $("#janHousingBdgt");
-    //                 $(janHousingBdgt).replaceWith(response[0].amount);
-    //             } else if (response[i].category == "Utilities") {
-    //                 console.log("**** Response i : **** ", response[i].month, response[i].category, response[i].amount);
-    //                 var janUtilitiesBdgt = $("#janHousingBdgt");
-    //                 janUtilitiesBdgt.replaceWith(response[i].amount);
-    //             }
-    //         }
-    //         // getMonthData(budgetMonth)
-    //         //sortCategory(januaryItems)
-
-    //     }
-    // }
 
     // For updating budgets
     function updateBudget(id) {
@@ -126,22 +90,23 @@ $.get("/api/user_data").then(function(user) {
                 url: "/api/budget/" + id
             })
             .then(function() {
-                renderBudget();
+                // renderBudget();
             });
     }
 
-    $("#deleteBtn").on("click", "button", function deleteBudgetData(e) {
-        e.preventDefault();
-        var clickedBudget = $(this).id();
+    function deleteBudget(id) {
+        $(this).closest("tr").remove();
         $.ajax({
                 method: "DELETE",
-                url: "/api/budget/" + clickedBudget
+                url: "/api/budget/" + id
             })
             .then(function() {
-                alert("You have successfully deleted this expense");
+                alert("You have successfully deleted this budget");
                 window.location.href = "/budget";
             });
+    }
 
-        console.log("You clicked this Budget", clickedBudget);
-    });
+    deleteBtn.on("click", "button", deleteBudget());
+
+    getBudgets();
 });
