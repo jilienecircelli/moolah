@@ -5,6 +5,8 @@ var budgetCategorySelect = $("#budget-category");
 var expenseAmtInput = $("#expense-amount");
 var userBudgets = [];
 var budgetTableElement = $("#budget-table");
+var deleteBtn = $("#deleteBtn");
+var expenseEdit = $("#editBtn");
 
 $.get("/api/user_data").then(function(user) {
     $(".user-name").text(user.firstName).attr("id", user.id);
@@ -40,7 +42,7 @@ $.get("/api/user_data").then(function(user) {
             })
             .then(function() {
                 console.log("this is the new budget " + budget);
-                renderBudgetRows(budget);
+                renderSubmittedBudgetRow(budget);
             });
     }
 
@@ -52,19 +54,17 @@ $.get("/api/user_data").then(function(user) {
         });
     }
 
-    // function renderSubmittedBudgetRow(userBudgets) {
-    //     userBudgets.forEach(function(budgetData) {
-    //         console.log("CreatBudgetRow" + JSON.stringify(budgetData));
-    //         var newTr = $('<tr id="' + budgetData.id + '">');
-    //         // newTr.data("expense", expenseData);
-    //         newTr.append("<td class='pt-3-half' id='budget-month'>" + budgetData.month + "</td>");
-    //         newTr.append("<td class='pt-3-half' id='budget-category'>" + budgetData.category + "</td>");
-    //         newTr.append("<td class='pt-3-half' id='budget-amount'>" + budgetData.amount + "</td>");
-    //         newTr.append("<td> <span class='table-edit'><button type='button' class='btn btn-secondary btn-rounded btn-sm my-0'><i class='fa fa-pencil-alt'></i></button></span> <span class='table-remove'><button type='button' class='btn btn-secondary btn-rounded btn-sm my-0'><i class='fas fa-trash'></i></button></span></td>");
-    //         // newTr.attr("data-id", expenseData.id);
-    //         budgetTableElement.append(newTr);
-    //     });
-    // }
+    function renderSubmittedBudgetRow(newBudget) {
+        var newTr = $('<tr id="' + newBudget.id + '">');
+        // newTr.data("expense", expenseData);
+        newTr.append("<td class='pt-3-half' id='budget-month'>" + newBudget.month + "</td>");
+        newTr.append("<td class='pt-3-half' id='budget-category'>" + newBudget.category + "</td>");
+        newTr.append("<td class='pt-3-half' id='budget-amount'>" + newBudget.amount + "</td>");
+        newTr.append("<td> <span class='table-edit'><button type='button' class='btn btn-secondary btn-rounded btn-sm my-0'><i class='fa fa-pencil-alt'></i></button></span> <span class='table-remove'><button type='button' class='btn btn-secondary btn-rounded btn-sm my-0'><i class='fas fa-trash'></i></button></span></td>");
+        // newTr.attr("data-id", expenseData.id);
+        budgetTableElement.append(newTr);
+    }
+
 
     function renderBudgetRows(userBudgets) {
         userBudgets.forEach(function(budgetData) {
@@ -74,7 +74,7 @@ $.get("/api/user_data").then(function(user) {
             newTr.append("<td class='pt-3-half' id='budget-month'>" + budgetData.month + "</td>");
             newTr.append("<td class='pt-3-half' id='budget-category'>" + budgetData.category + "</td>");
             newTr.append("<td class='pt-3-half' id='budget-amount'>" + budgetData.amount + "</td>");
-            newTr.append("<td> <span class='table-edit'><button type='button' class='btn btn-secondary btn-rounded btn-sm my-0'><i class='fa fa-pencil-alt'></i></button></span> <span class='table-remove'><button type='button' class='btn btn-secondary btn-rounded btn-sm my-0'><i class='fas fa-trash'></i></button></span></td>");
+            newTr.append("<td> <span class='table-edit'><button type='button' class='btn btn-secondary btn-rounded btn-sm my-0' id='editBtn'><i class='fa fa-pencil-alt'></i></button></span> <span class='table-remove'><button type='button' class='btn btn-secondary btn-rounded btn-sm my-0' id='deleteBtn'><i class='fas fa-trash'></i></button></span></td>");
             // newTr.attr("data-id", expenseData.id);
             budgetTableElement.append(newTr);
         });
@@ -129,4 +129,19 @@ $.get("/api/user_data").then(function(user) {
                 renderBudget();
             });
     }
+
+    $("#deleteBtn").on("click", "button", function deleteBudgetData(e) {
+        e.preventDefault();
+        var clickedBudget = $(this).id();
+        $.ajax({
+                method: "DELETE",
+                url: "/api/budget/" + clickedBudget
+            })
+            .then(function() {
+                alert("You have successfully deleted this expense");
+                window.location.href = "/budget";
+            });
+
+        console.log("You clicked this Budget", clickedBudget);
+    });
 });
