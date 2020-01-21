@@ -48,24 +48,41 @@
         </div>
         <div class="row">
             <!-- Goalz -->
-            
+
             <div class="card col-md-2" style="padding: 20px;">
                 <div class="card-header bg-light border" style="padding-top: 10px;">
                     <h4 class="text-center"><i class="fas fa-coins" style="padding-top: 10px;"></i> Goalz</h4>
                 </div>
 
+<<<<<<< HEAD
                 <div class="card-body col-12 goalCategory-col text-center">
                     <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#goalModal">New
                             Goal</button>
                             <br>
                             <br>
+=======
+                <div class="card-body col-12 goalCategory-col">
+                    <!--***************** THIS PART NOT WORKING YET*********** -->
+                    <!-- <div class="form-group">
+                        <select class="custom-select" id="category">
+                            <option selected value="">All Categories</option>
+                            <option value="Housing">Housing</option>
+                            <option value="Utilities">Utilities</option>
+                            <option value="Transportation">Transportation</option>
+                            <option value="Food">Food</option>
+                            <option value="Shopping">Shopping</option>
+                            <option value="Leisure">Leisure</option>
+                            <option value="Miscellaneous">Miscellaneous</option>
+                        </select>
+                    </div> -->
+>>>>>>> 824a497db0392e733e6091f3c9fd758f13e38b7b
                     <div class="card col-12 goals-col">
                         
                     </div>
                     <div class="col-12 newGoalz-col text-center">
                         
                         <div class="modal fade" id="goalModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                            <!--Modal: Contact form-->   
+                            <!--Modal: Contact form-->
                             <div class="modal-dialog cascading-modal" role="document">
                                 <!--Content-->
                                 <div class="modal-content">
@@ -77,10 +94,10 @@
                                     </div>
 
                                     <!--Body-->
-                                <form id="goalForm"> 
-                                    <div class="modal-body">
-                                        <div class="form-group">
+                                    <form id="goalForm">
+                                        <div class="modal-body">
                                             <div class="form-group">
+<<<<<<< HEAD
                                             <label for="category">Select Category:</label>
                                                 <select class="custom-select" id="goal-category">
                                                     <option value="Housing">Housing</option>
@@ -112,15 +129,47 @@
                                                 <button type="submit" class="btn btn-secondary submitGoal" id="submit-goal">Submit Goal
 
                                                 </button>
-                                            </div>
-                                        </div>
+=======
+                                                <div class="form-group">
+                                                    <label for="category">Select Category:</label>
+                                                    <select class="custom-select" id="goal-category">
+                                                        <option value="Housing">Housing</option>
+                                                        <option value="Utilities">Utilities</option>
+                                                        <option value="Transportation">Transportation</option>
+                                                        <option value="Food">Food</option>
+                                                        <option value="Shopping">Shopping</option>
+                                                        <option value="Leisure">Leisure</option>
+                                                        <option value="Miscellaneous">Miscellaneous</option>
+                                                    </select>
+                                                </div>
+                                                <br>
+                                                <label for="body">Goal Name:</label>
+                                                <textarea class="md-textarea form-control" rows="1" id="goalName"></textarea>
+                                                <br>
 
-                                    </div>
-                                </form>
+                                                <label for="body">Monthly Contribution:</label>
+                                                <input type="number" name="quantity" min="0" max="999999999999999999999999" class="md-textarea form-control" rows="1" id="goalMonthlyContribution"></input>
+                                                <br>
+
+                                                <label for="body">Goal Description:</label>
+                                                <textarea class="md-textarea form-control" rows="1" id="goalDescription"></textarea>
+                                                <br>
+
+                                                <label for="amountOfGoal">Set your amount:</label>
+                                                <input type="number" name="quantity" min="0" max="999999999999999999999999" class="md-textarea form-control" rows="1" id="goalAmount"></input>
+
+                                                <div class="text-center mt-4 mb-2">
+                                                    <button type="submit" class="btn btn-light submitGoal" id="submit-goal">Goal!<i class="fa fa-send ml-2"></i></button>
+                                                </div>
+>>>>>>> 824a497db0392e733e6091f3c9fd758f13e38b7b
+                                            </div>
+
+                                        </div>
+                                    </form>
                                 </div>
                                 <!--/.Content-->
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>
@@ -186,163 +235,13 @@
                                         <table class="table table-bordered table-responsive-md table-striped text-center">
                                             <thead>
                                                 <tr>
+                                                    <th class="text-center">Month</th>
+                                                    <th class="text-center">Category</th>
+                                                    <th class="text-center">Amount</th>
                                                     <th class="text-center"></th>
-                                                    <th class="text-center">Housing</th>
-                                                    <th class="text-center">Utilities</th>
-                                                    <th class="text-center">Transportation</th>
-                                                    <th class="text-center">Food</th>
-                                                    <th class="text-center">Shopping</th>
-                                                    <th class="text-center">Leisure</th>
-                                                    <th class="text-center">Miscellaneous</th>
-                                                    <th class="text-center">Amount Spent</th>
                                                 </tr>
                                             </thead>
-                                            <tbody>
-                                                <tr id="january">
-                                                    <td class="pt-3-half font-weight-bold text-right">January</td>
-                                                    <td class="pt-3-half" id="janhousingBdgt">0</td>
-                                                    <td class="pt-3-half" id="janUtilitiesBdgt"></td>
-                                                    <td class="pt-3-half" id="janTransportationBdgt"></td>
-                                                    <td class="pt-3-half" id="janFoodBdgt"></td>
-                                                    <td class="pt-3-half" id="janShoppingBdgt"></td>
-                                                    <td class="pt-3-half" id="janLeisureBdgt"></td>
-                                                    <td class="pt-3-half" id="janMiscBdgt"></td>
-                                                    <td class="pt-3-half font-weight-bold" id="janTotalSpent"></td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="pt-3-half font-weight-bold text-right">February</td>
-                                                    <td class="pt-3-half" id="febHousingBdgt">0</td>
-                                                    <td class="pt-3-half" id="febUtilitiesBdgt">0</td>
-                                                    <td class="pt-3-half" id="febTransportationBdgt">0</td>
-                                                    <td class="pt-3-half" id="febFoodBdgt">0</td>
-                                                    <td class="pt-3-half" id="febShoppingBdgt">0</td>
-                                                    <td class="pt-3-half" id="febLeisureBdgt">0</td>
-                                                    <td class="pt-3-half" id="febMiscBdgt">0</td>
-                                                    <td class="pt-3-half font-weight-bold" id="febTotalSpent">0</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="pt-3-half font-weight-bold text-right">March</td>
-                                                    <td class="pt-3-half" id="marHousingBdgt">0</td>
-                                                    <td class="pt-3-half" id="marUtilitiesBdgt">0</td>
-                                                    <td class="pt-3-half" id="marTransportationBdgt">0</td>
-                                                    <td class="pt-3-half" id="marFoodBdgt">0</td>
-                                                    <td class="pt-3-half" id="marShoppingBdgt">0</td>
-                                                    <td class="pt-3-half" id="marLeisureBdgt">0</td>
-                                                    <td class="pt-3-half" id="marMiscBdgt">0</td>
-                                                    <td class="pt-3-half font-weight-bold" id="marTotalSpent">0</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="pt-3-half font-weight-bold text-right">April</td>
-                                                    <td class="pt-3-half" id="aprHousingBdgt">0</td>
-                                                    <td class="pt-3-half" id="aprUtilitiesBdgt">0</td>
-                                                    <td class="pt-3-half" id="aprTransportationBdgt">0</td>
-                                                    <td class="pt-3-half" id="aprFoodBdgt">0</td>
-                                                    <td class="pt-3-half" id="aprShoppingBdgt">0</td>
-                                                    <td class="pt-3-half" id="aprLeisureBdgt">0</td>
-                                                    <td class="pt-3-half" id="aprMiscBdgt">0</td>
-                                                    <td class="pt-3-half font-weight-bold" id="aprTotalSpent">0</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="pt-3-half font-weight-bold text-right">May</td>
-                                                    <td class="pt-3-half" id="mayHousingBdgt">0</td>
-                                                    <td class="pt-3-half" id="mayUtilitiesBdgt">0</td>
-                                                    <td class="pt-3-half" id="mayTransportationBdgt">0</td>
-                                                    <td class="pt-3-half" id="mayFoodBdgt">0</td>
-                                                    <td class="pt-3-half" id="mayShoppingBdgt">0</td>
-                                                    <td class="pt-3-half" id="mayLeisureBdgt">0</td>
-                                                    <td class="pt-3-half" id="mayMiscBdgt">0</td>
-                                                    <td class="pt-3-half font-weight-bold" id="mayTotalSpent">0</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="pt-3-half font-weight-bold text-right">June</td>
-                                                    <td class="pt-3-half" id="junHousingBdgt">0</td>
-                                                    <td class="pt-3-half" id="junUtilitiesBdgt">0</td>
-                                                    <td class="pt-3-half" id="junTransportationBdgt">0</td>
-                                                    <td class="pt-3-half" id="junFoodBdgt">0</td>
-                                                    <td class="pt-3-half" id="junShoppingBdgt">0</td>
-                                                    <td class="pt-3-half" id="junLeisureBdgt">0</td>
-                                                    <td class="pt-3-half" id="junMiscBdgt">0</td>
-                                                    <td class="pt-3-half font-weight-bold" id="junTotalSpent">0</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="pt-3-half font-weight-bold text-right">July</td>
-                                                    <td class="pt-3-half" id="julHousingBdgt">0</td>
-                                                    <td class="pt-3-half" id="julUtilitiesBdgt">0</td>
-                                                    <td class="pt-3-half" id="julTransportationBdgt">0</td>
-                                                    <td class="pt-3-half" id="julFoodBdgt">0</td>
-                                                    <td class="pt-3-half" id="julShoppingBdgt">0</td>
-                                                    <td class="pt-3-half" id="julLeisureBdgt">0</td>
-                                                    <td class="pt-3-half" id="julMiscBdgt">0</td>
-                                                    <td class="pt-3-half font-weight-bold" id="julTotalSpent">0</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="pt-3-half font-weight-bold text-right">August</td>
-                                                    <td class="pt-3-half" id="augHousingBdgt">0</td>
-                                                    <td class="pt-3-half" id="augUtilitiesBdgt">0</td>
-                                                    <td class="pt-3-half" id="augTransportationBdgt">0</td>
-                                                    <td class="pt-3-half" id="augFoodBdgt">0</td>
-                                                    <td class="pt-3-half" id="augShoppingBdgt">0</td>
-                                                    <td class="pt-3-half" id="augLeisureBdgt">0</td>
-                                                    <td class="pt-3-half" id="augMiscBdgt">0</td>
-                                                    <td class="pt-3-half font-weight-bold" id="augTotalSpent">0</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="pt-3-half font-weight-bold text-right">September</td>
-                                                    <td class="pt-3-half" id="sepHousingBdgt">0</td>
-                                                    <td class="pt-3-half" id="sepUtilitiesBdgt">0</td>
-                                                    <td class="pt-3-half" id="sepTransportationBdgt">0</td>
-                                                    <td class="pt-3-half" id="sepFoodBdgt">0</td>
-                                                    <td class="pt-3-half" id="sepShoppingBdgt">0</td>
-                                                    <td class="pt-3-half" id="sepLeisureBdgt">0</td>
-                                                    <td class="pt-3-half" id="sepMiscBdgt">0</td>
-                                                    <td class="pt-3-half font-weight-bold" id="sepTotalSpent">0</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="pt-3-half font-weight-bold text-right">October</td>
-                                                    <td class="pt-3-half" id="octHousingBdgt">0</td>
-                                                    <td class="pt-3-half" id="octUtilitiesBdgt">0</td>
-                                                    <td class="pt-3-half" id="octTransportationBdgt">0</td>
-                                                    <td class="pt-3-half" id="octFoodBdgt">0</td>
-                                                    <td class="pt-3-half" id="octShoppingBdgt">0</td>
-                                                    <td class="pt-3-half" id="octLeisureBdgt">0</td>
-                                                    <td class="pt-3-half" id="octMiscBdgt">0</td>
-                                                    <td class="pt-3-half font-weight-bold" id="octTotalSpent">0</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="pt-3-half font-weight-bold text-right">November</td>
-                                                    <td class="pt-3-half" id="novHousingBdgt">0</td>
-                                                    <td class="pt-3-half" id="novUtilitiesBdgt">0</td>
-                                                    <td class="pt-3-half" id="novTransportationBdgt">0</td>
-                                                    <td class="pt-3-half" id="novFoodBdgt">0</td>
-                                                    <td class="pt-3-half" id="novShoppingBdgt">0</td>
-                                                    <td class="pt-3-half" id="novLeisureBdgt">0</td>
-                                                    <td class="pt-3-half" id="novMiscBdgt">0</td>
-                                                    <td class="pt-3-half font-weight-bold" id="novTotalSpent">0</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="pt-3-half font-weight-bold text-right">December</td>
-                                                    <td class="pt-3-half" id="decHousingBdgt">0</td>
-                                                    <td class="pt-3-half" id="decUtilitiesBdgt">0</td>
-                                                    <td class="pt-3-half" id="decTransportationBdgt">0</td>
-                                                    <td class="pt-3-half" id="decFoodBdgt">0</td>
-                                                    <td class="pt-3-half" id="decShoppingBdgt">0</td>
-                                                    <td class="pt-3-half" id="decLeisureBdgt">0</td>
-                                                    <td class="pt-3-half" id="decMiscBdgt">0</td>
-                                                    <td class="pt-3-half font-weight-bold" id="decTotalSpent">0</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="pt-3-half font-weight-bold text-right">Annual</td>
-                                                    <td class="pt-3-half font-weight-bold" id="annualHousingBdgt">0</td>
-                                                    <td class="pt-3-half font-weight-bold" id="annualUtilitiesBdgt">0
-                                                    </td>
-                                                    <td class="pt-3-half font-weight-bold" id="annualTransportationBdgt">0</td>
-                                                    <td class="pt-3-half font-weight-bold" id="annualFoodBdgt">0</td>
-                                                    <td class="pt-3-half font-weight-bold" id="annualShoppingBdgt">0
-                                                    </td>
-                                                    <td class="pt-3-half font-weight-bold" id="annualLeisureBdgt">0</td>
-                                                    <td class="pt-3-half font-weight-bold" id="annualMiscBdgt">0</td>
-                                                    <td class="pt-3-half font-weight-bold" id="annualTotalSpent">0</td>
-                                                </tr>
+                                            <tbody id="budget-table">
                                             </tbody>
                                         </table>
                                     </div>
