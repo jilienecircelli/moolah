@@ -65,23 +65,23 @@
         
         console.log(newGoalName);
 
-        var $newGoalHeading = $(`<h5> ${newGoalName}</h5>`);
-        $newGoalHeading.addClass("card-header");
+        var $newGoalHeading = $(`<h6> ${newGoalName}</h6>`);
+        $newGoalHeading.addClass("card-header bg-white");
         $(".goals-col").append($newGoalHeading);
 
-        var $newGoalDescription = $(`<h9> Description: ${newGoalDescription}</h9> <br>`);
-        $newGoalDescription.addClass("card-text");
-        $(".goals-col").append($newGoalDescription);
+        // var $newGoalDescription = $(`<h9> Description: \n ${newGoalDescription}</h9>`);
+        // $newGoalDescription.addClass("card-text");
+        // $(".goals-col").append($newGoalDescription);
 
-        var $newGoalCategory = $(`<h9> Category: ${newGoalCategory}</h9> <br>`);
+        var $newGoalCategory = $(`<p> Category: \n ${newGoalCategory}</p>`);
         $newGoalCategory.addClass("card-text");
         $(".goals-col").append($newGoalCategory);
 
-        var $newGoalAmount = $(`<h9> Goal amount: ${newGoalAmount}</h9> <br>`);
+        var $newGoalAmount = $(`<p> Goal amount: \n ${newGoalAmount}</p>`);
         $newGoalAmount.addClass("card-text");
         $(".goals-col").append($newGoalAmount);
 
-        var $newGoalContribution = $(`<h9> Monthly Contribution: ${newGoalContribution}</h9> <br>`);
+        var $newGoalContribution = $(`<p> Monthly Contribution: \n ${newGoalContribution}</p> <br>`);
         $newGoalContribution.addClass("card-text");
         $(".goals-col").append($newGoalContribution);
     }
