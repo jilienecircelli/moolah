@@ -171,8 +171,9 @@ function deleteExpenseData(id) {
             url: "/api/expenses/" + id
         })
         .then(function() {
-            alert("You have successfully deleted this expense");
+            // alert("You have successfully deleted this expense");
             window.location.href = "/addexpenses";
+            getExpenses();
         });
 }
 
