@@ -78,6 +78,7 @@ $.get("/api/user_data").then(function(user) {
             newTr.append("<td> <span class='table-edit'><button type='button' class='btn btn-secondary btn-rounded btn-sm my-0 editBtn' id='" + budgetData.id + "'><i class='fa fa-pencil-alt'></i></button></span> <span class='table-remove'><button type='button' class='btn btn-secondary btn-rounded btn-sm my-0 deleteBtn' id='" + budgetData.id + "'><i class='fas fa-trash'></i></button></span></td>");
             // newTr.attr("data-id", expenseData.id);
             budgetTableElement.append(newTr);
+
         });
     }
 
@@ -108,8 +109,9 @@ $.get("/api/user_data").then(function(user) {
                 url: "/api/budget/" + id
             })
             .then(function() {
-                alert("You have successfully deleted this budget");
+                //alert("You have successfully deleted this budget");
                 window.location.href = "/budget";
+                getBudgets();
             });
     }
 
